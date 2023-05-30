@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Modern+Antiqua&family=Source+Sans+Pro&display=swap');
+
+.book.font-family-1 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Modern Antiqua', serif;
+}
+
+.title {
+  font-family: 'Modern Antiqua', serif;
+ }
+
+.subtitle {
+  font-family: 'Modern Antiqua', serif;
+}
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
