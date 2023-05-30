@@ -1,0 +1,13 @@
+welcome-to-my-mre
+intro
+marginalia-in-the-archive
+historical-significance-of-marginalia
+presence-in-physical-and-digital-archives
+the-digital-archive
+as-big-data
+as-metadata
+creation-of-an-application-to-capture-the-metadata-of-big-data
+technical-overview
+process
+case-study-finding-early-modern-marginalia
+conclusions
