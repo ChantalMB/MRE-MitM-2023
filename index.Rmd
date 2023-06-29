@@ -5,8 +5,8 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
-biblio-style: apalike
+bibliography: [MRE-2023.bib, packages.bib]
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-fullnote-bibliography-short-title-subsequent.csl
 link-citations: yes
 favicon: images/favicon.ico
 github-repo: ChantalMB/MitM-MRE-2023

@@ -1,3 +1,13 @@
 # Introduction {#intro}
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+This is a test of my citations [@dijstelberge_annotated].
+
+Another test [@dignazio_data_2020, 39].
+
+Yet again [@acheson_early_2019].
+
+## Acknowledgements
+- Supervisor
+- Svelte community and Discord
+- Partner, for playing Tears of the Kingdom while I work so I don't get distracted
+

@@ -3,4 +3,7 @@
 ## Historical Significance of Marginalia 
 
 ## Presence in Physical and Digital Archives
+- How is marginalia defined?
+  - In each of the archives I used for analysis/training, what counted as marginalia?
+    - AOR included both annotations in the margins, as well as the readers' usage of blank pages (nts what did those pages say? ref Wheelocks...)
 

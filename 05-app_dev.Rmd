@@ -1,5 +1,50 @@
 # Creation of an Application to Capture the Metadata of Big Data
 
 ## Technical Overview
+- Svelte/Kit
+- Electron
+- Openseadragon
+- Annotorious 
+  - As used by [UCL's MicroPasts](https://crowdsourced.micropasts.org/)
 
 ## Process
+
+- Concept of slow annotation --> like current slow fashion/slow creation movement
+  - If project can temporally afford it (only needs a small amount of training data or has a large group working on annotation), then metadata to tracking training process to be as comprehensive as possible
+  - Cite ISSAP as example of "slow annotation"?
+
+- Applied background in UI development
+  - Mapping (verify that this is correct term)
+    - MS Paint
+    - Excel
+  - Home and save button placed reasonable distance apart to reduce risk of accidental clicks
+
+- My Metadata
+  - Encourage the user to create structured metadata for their annotations
+- Extracted Metadata
+  - The pre-existing metadata from the uploaded image
+- Annotation metadata columns created 
+
+
+Home
+- User can choose to work in existing project or create new project
+
+New Project
+- User uploads collection of images they would like to annotate
+
+Workspace
+- File viewer
+  - Lists uploaded image files
+  - Offers ability to add or remove additional files
+- Metadata viewer
+  - One tab for automatically extracted data
+
+
+- From homepage, user is always taken to Workspace
+  - If they select "New Project" they are taken to an empty workspace with guidance on how to setup a project
+  - If they select "Open Existing Project" they are immediately prompted to open the JSON file
+
+- Deleting annotation on canvas deletes corresponding row --> direct interaction/connection between image and metadata being generated
+
+Limitations
+- Larger number of files, larger loading time --> 15000 images takes 5min to load
