@@ -1,1 +1,20 @@
 # Case Study: Finding Early Modern Marginalia
+- Scraping 
+  - 
+
+
+- Annotation and training model as an iterative process
+  - Using YOLOv7 object detection model --> most specialised for real-time object detection, which makes it good at object detection even when given a small number of examples to train from 
+  - Stage 1: Will manually annotate a small number of images from AOR --> the creators of this digital archive indicated which book pages have annotations, so it was very easy to obtain examples of annotated pages
+    - For diversity, I also annotated a small selection of page excerpts from NLS Chapbooks archive which I uncovered in a previous object detection experiment that sought to find the woodcut illustrations present in chapbooks.
+  - Stage 2: I wil use the small set of annotated images to train the model, and then apply this trained model to the Calisphere archive to generate more training data
+  - Stage 3: After revising the Calisphere detections, I will perform the final training step with this additional training data and then apply this model to the NLS Chapbooks dataset.
+
+Stage 1: Manual Annotation
+- Added "Notes" category to make note of any interesting finds
+  - Trying to understand what the marginalia in Coalman's Courtship is exactly --> corrections? indicated in the notes of one annotation that marginalia appears to be an alternate phrasing
+    - Annotator of J&M's Courtship appears to be making the same corrections --> Same person?
+    - Marginalia seems to be "updating" the language used in the story --> perhaps chapbook was created earlier in the EM period and annotator is annotating it later in EM period
+    - Despite more "modern" corrections/rephrasing, there are still many pieces of this reader's marginalia that are not comprehensible to me --> this could however, be used to identify a timeframe of when/where the marginalia was composed or who it was composed by
+      - Word "auld" is used --> usage of "auld" peaked in 1820s, but also Scottish/Irish/Northern England
+- Find myself referencing the image/archival metadata to aid in comprehension of the marginalia itself
