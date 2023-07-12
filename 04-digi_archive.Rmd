@@ -1,16 +1,11 @@
 # The Digital Archive
 
+In 2016, book historian Ryan Cordell called for more robust methods to describe digital artifacts bibliographically within the context of utilizing digitized archives. Research which makes use of these digital objects often fails to account for the sources, technologies, and social realities of the objects’ creation in ways that make their affordances and limitations more readily visible and available for critique.[@cordell_q_2017, 191] [@mak_archaeology_2014, 3] Likewise, in conceptualizing digital archives as sources of data in their book, *Data Feminism*, Catherine D'Ignazio and Laura Klein discuss data science and ethics as informed by intersectional feminism; they continuously emphasize the necessity of further context at all stages of working with “data”, from acquisition to analysis, because the context which data is situated in is seen as essential to the ultimate "framing and communication of results" formed through its use.[@dignazio_data_2020, 164] 
+
+When archival materials are integrated into research utilizing more traditional methods of historical inquiry, the subject being analyzed tends to be singular, which in turn makes answering these questions manageable without extensive organization, since there is cohesion across sources. Comparatively, the large amount of data needed for machine learning tasks often results in these questions being difficult to answer on a microscopic level, because the metadata for each archival item used is omitted during the process of data collection. The scale of the dataset produced makes such detailed information be perceived as unnecessary. Yet these details which go into the first step of building a machine learning model are vital to understanding the influences and limitations of it; the foundations which machines learn with and from are human, meaning that they contain "human subjectivities, biases, and distortions" like all other works created by humans.[@lee_compounded_2021] In order to produce meaningful output using either analog or automated research methods such a machine learning for identification, it is vital to interrogate the input that contributed to the making of the method being applied for answers regarding social, cultural, historical, institutional, and material conditions under which that input was produced, as well as about the identities of the people who created it.[@dignazio_data_2020, 152]
+
+
 ## As Big Data
 
 ## As Metadata
 
-
-You can also use math in footnotes like this^[where we mention $p = \frac{a}{b}$].
-
-We will approximate standard error to 0.027[^longnote]
-
-[^longnote]: $p$ is unknown but expected to be around 1/3. Standard error will be approximated
-
-    $$
-    SE = \sqrt(\frac{p(1-p)}{n}) \approx \sqrt{\frac{1/3 (1 - 1/3)} {300}} = 0.027
-    $$

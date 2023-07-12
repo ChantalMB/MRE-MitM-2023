@@ -17,4 +17,10 @@ description: "This is a minimal example of using the bookdown package to write a
 
 This is placeholder text until I have something more smarter to put here.
 
+- The GitHub repository for this site: https://github.com/ChantalMB/MRE-MitM-2023
+- The GitHub repository for the app: https://github.com/ChantalMB/MRE-RocketAnno
+- The GitHub repository for the case study: https://github.com/ChantalMB/MRE-Detecting-Marginalia
+
+
+
 

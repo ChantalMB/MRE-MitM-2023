@@ -2,13 +2,14 @@
 - Scraping 
   - 
 
-
 - Annotation and training model as an iterative process
   - Using YOLOv7 object detection model --> most specialised for real-time object detection, which makes it good at object detection even when given a small number of examples to train from 
   - Stage 1: Will manually annotate a small number of images from AOR --> the creators of this digital archive indicated which book pages have annotations, so it was very easy to obtain examples of annotated pages
     - For diversity, I also annotated a small selection of page excerpts from NLS Chapbooks archive which I uncovered in a previous object detection experiment that sought to find the woodcut illustrations present in chapbooks.
-  - Stage 2: I wil use the small set of annotated images to train the model, and then apply this trained model to the Calisphere archive to generate more training data
-  - Stage 3: After revising the Calisphere detections, I will perform the final training step with this additional training data and then apply this model to the NLS Chapbooks dataset.
+  - Stage 2: Transfer learning pt 1-- freeze the backbone feature extraction layers of model and only train head layers which analyze extracted features and predict the presence, location, and class of objects in the image. 
+    - 'freeze' refers to a process of fixing the weights of certain layers in the model during training --> by freezing the layers, their weights are not updated during the training process, allowing them to retain the pre-trained knowledge. 
+    - Addresses the challenge of a small dataset size by leveraging a pretrained model's backbone layers (which have learned general features from a larger dataset) while only training the head layers --> approach aims to benefit from the pre-existing knowledge captured by the backbone layers while adapting the model to the specific object detection task with limited data.
+  - Stage 3: Transfer learning pt 2-- unfreeze backbone feature extraction layers so that all layers can be trained using updated head weights from previous step
 
 Stage 1: Manual Annotation
 - Added "Notes" category to make note of any interesting finds
@@ -18,3 +19,16 @@ Stage 1: Manual Annotation
     - Despite more "modern" corrections/rephrasing, there are still many pieces of this reader's marginalia that are not comprehensible to me --> this could however, be used to identify a timeframe of when/where the marginalia was composed or who it was composed by
       - Word "auld" is used --> usage of "auld" peaked in 1820s, but also Scottish/Irish/Northern England
 - Find myself referencing the image/archival metadata to aid in comprehension of the marginalia itself
+
+Stage 2.0: Training Model Rnd1
+- Trial with small number of ~250 annotated images
+  - Low mAP @ 0.594 but still pretty good!
+  - ...However testing the model on unseen images reveals the flaw of primarily annotating images from AOR
+    - Model almost exclusively looks for marginalia on page peripherals since this is where Dee and Harvey annotated the most
+    - Need to diversify dataset 
+- Trial with small number of ~350 annotated images including Calisphere
+  - Somehow the model got worse with more data... time to reconsider object detection model? 
+  - No nvm just overfitted, however the confidence scores are still very low...
+
+
+- While writing, was easily able to refer back to the pages annotated and find examples through using the search function
