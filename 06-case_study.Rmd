@@ -1,4 +1,7 @@
 # Case Study: Finding Early Modern Marginalia
+
+DISCUSS: Data sources, data wrangling, annotation process, training model, technical results, historiographical results 
+
 - Scraping 
   - 
 
@@ -32,3 +35,5 @@ Stage 2.0: Training Model Rnd1
 
 
 - While writing, was easily able to refer back to the pages annotated and find examples through using the search function
+
+- Sherman discusses origin of marks in *Used Books* pg 27-28
