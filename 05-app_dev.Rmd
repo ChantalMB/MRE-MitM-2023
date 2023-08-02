@@ -54,3 +54,5 @@ Workspace
 
 Limitations
 - Larger number of files, larger loading time --> 15000 images takes 5min to load
+
+- How does this app support the "Collections as ML Data" checklist?
