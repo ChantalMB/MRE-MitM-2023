@@ -1,3 +1,4 @@
+fig:unnamed-chunk-1
 welcome-to-my-mre
 intro
 acknowledgements
@@ -5,18 +6,14 @@ marginalia-in-the-archive
 the-historiography-of-marginalia
 presence-in-physical-and-digital-archives
 what-is-marginalia
-physical-archive
-digital-archive
-acheson-intro
-the-digital-archive
-as-big-data
-as-metadata
+physical-and-digital-presence
+on-object-marks-and-machines
 creation-of-an-application-to-capture-the-metadata-of-big-data
 technical-overview
 process
+interface-and-tooling
+annotation-and-metadata
 case-study-finding-early-modern-marginalia
 model
 data-preprocessing
 conclusions
-fig:new-bs4-book
-fig:unnamed-chunk-1
