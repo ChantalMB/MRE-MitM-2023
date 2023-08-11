@@ -2,36 +2,196 @@
 
 DISCUSS: Data sources, data wrangling, annotation process, training model, technical results, historiographical results 
 
-- Scraping 
-  - 
+[When regarding collections as data, [we] have discussed the challenges faced relating to metadata, but what about the issues encountered when using collections as data [in their entirety]]? Machine learning models require large-scale data for training, fine-tuning, and evaluation, yet there is a shortage of large-scale datasets within in historical and cultural heritage domains that have slowed this form of techonlogical advancement in this field. Digitized cultural heritage collections can help bridge this gap, however, this requires that the institutions which hold this data be active participants in this shift to making their digtized collections open and accessible to use in ways other than simply viewing.
 
-- Annotation and training model as an iterative process
-  - Using YOLOv7 object detection model --> most specialised for real-time object detection, which makes it good at object detection even when given a small number of examples to train from 
-  - Stage 1: Will manually annotate a small number of images from AOR --> the creators of this digital archive indicated which book pages have annotations, so it was very easy to obtain examples of annotated pages
-    - For diversity, I also annotated a small selection of page excerpts from NLS Chapbooks archive which I uncovered in a previous object detection experiment that sought to find the woodcut illustrations present in chapbooks.
-  - Stage 2: Transfer learning pt 1-- freeze the backbone feature extraction layers of model and only train head layers which analyze extracted features and predict the presence, location, and class of objects in the image. 
-    - 'freeze' refers to a process of fixing the weights of certain layers in the model during training --> by freezing the layers, their weights are not updated during the training process, allowing them to retain the pre-trained knowledge. 
-    - Addresses the challenge of a small dataset size by leveraging a pretrained model's backbone layers (which have learned general features from a larger dataset) while only training the head layers --> approach aims to benefit from the pre-existing knowledge captured by the backbone layers while adapting the model to the specific object detection task with limited data.
-  - Stage 3: Transfer learning pt 2-- unfreeze backbone feature extraction layers so that all layers can be trained using updated head weights from previous step
+Cultural heritage instituations are increasingly digitizing their collections and making them available through online portals for public consumption and discovery, the usability of their collections as data is rarely straightforward. Although standardized methods for the virtual exchange of digital collections through the use of Application Programming Interfaces (APIs) is becoming more prevalent, these APIs often lack comprehensive documentation on their usage beyond internal data retrieval. Further, while APIs offer a more formal way of accessing collections as data, many of those who seek to use collections as data find "simple download dumps" more useful to quickly explore what is a collection offers, as they provide direct access to data without the need to learn the intricacies of an API.[@neudecker_ch_2022, 3] Yet even when cultural heritage institutions do offer their data as downloadable content, it often ends up being in complex schema formats like METS, MODS, and ALTO XML, which, though standard in the library and archival domains, pose a barrier for use in contexts of data analysis, where formats such as CSV and JSON files are preferred due to the availability of programming libraries that can easily process these formats. Should the institution be unable to distribute their data in multiple formats, there should be clear documentation on their format of choice, how they are used, and ideally information or links to technical resources that allow transformation into other formats in a straightforward and reproducible way.[@neudecker_ch_2022, 3] To harness the full potential of their content, cultural heritage institutions cannot only rely on the ability of the researchers to access their data through [unmonitored] and time consuming means such as webscraping; instead, they must invest in more suitable ways to share their data, and in digital curation with a considerably broader scope of use, while also [integrating] their responsibilities to the content of their data regarding any ethical issues and inequities that may be present.
 
-Stage 1: Manual Annotation
-- Added "Notes" category to make note of any interesting finds
-  - Trying to understand what the marginalia in Coalman's Courtship is exactly --> corrections? indicated in the notes of one annotation that marginalia appears to be an alternate phrasing
-    - Annotator of J&M's Courtship appears to be making the same corrections --> Same person?
-    - Marginalia seems to be "updating" the language used in the story --> perhaps chapbook was created earlier in the EM period and annotator is annotating it later in EM period
-    - Despite more "modern" corrections/rephrasing, there are still many pieces of this reader's marginalia that are not comprehensible to me --> this could however, be used to identify a timeframe of when/where the marginalia was composed or who it was composed by
-      - Word "auld" is used --> usage of "auld" peaked in 1820s, but also Scottish/Irish/Northern England
-- Find myself referencing the image/archival metadata to aid in comprehension of the marginalia itself
+As discussed in the context of metadata, the lack of attention paid to the curation of training data in machine learning has been a signficant topic of discussion as of recent, with research emerging from the [field of computer science] on recommendations for ethically sound and transparent standards for publishing datasets alongside calls for more "accountable" curation, as is perceived to be practiced in cultural heritage institutions. These discussions have fed into reflective research within [archival studies] on what ethical issues may arise when using cultural heritage data for the purpose of machine learning. Collections, in both digital and analogue form, are not just sources of history but also "its subjects, sites with histories and politics of their own."[@yale_state_2015, 332] Without criticial reflection on how collections have been curated in past and present, [], or what has and *has not* been digitized, there is the risk of models that are trained using these archives to replicate the epistemologies, injustices, and anxieties exemplified by previous archival orders without action taken toward resolution; even with good intentions, projects using cultural heritage data "risk kitschifying or exploiting those represented in the digitized collections in question."[@bonde_thylstrup_uncertain_2021, 4] [@lee_collections_2023, 2] [A recent demonstration of contested subjects and vulernable histories within digital archives is the Zealy Daguerreotypes], a series of photographs taken by Joseph T. Zealy featuring enslaved men and women in [various states of undress] commissioned by naturalist Louis Agassiz in 1850 as part of his effort to document physical evidence of polygenism. These daguerreotypes were uncovered in the attic of Harvard University's Peabody Museum of Archaeology and Ethnology by an archivist in 1977, and are now featured in the Peabody Museum's online collections, [being, in fact, the first of the search results for "daguerreotype".[https://collections.peabody.harvard.edu/search/daguerreotype/objects]] Tamara Lanier, a descendant of two of Agassiz's "subjects", sued Harvard in 2019 for unlawfully possessing and profiting from the image of her ancestors, who as slaves could not have consented to these photos being taken and their further usage.[@bonde_thylstrup_uncertain_2021, 75] Despite the [contention] surrounding these images, when viewing their entries within the digital archive there is no indication of the history associated with these photos in the metadata, no context given about the enslaved subjects or the fact the photographed individuals were enslaved, nor the photos' purpose as "proof" of polygenesis by Agassiz. There is only a short disclaimer about historical language, which appears to be present on all items in the Peabody Museum's online collections. These individuals are not safe from being commodified again; as images in the public domain, they could easily end up in scraped into a dataset and used for the purpose of [machine learning/image generation like DALLE].
 
-Stage 2.0: Training Model Rnd1
-- Trial with small number of ~250 annotated images
-  - Low mAP @ 0.594 but still pretty good!
-  - ...However testing the model on unseen images reveals the flaw of primarily annotating images from AOR
-    - Model almost exclusively looks for marginalia on page peripherals since this is where Dee and Harvey annotated the most
-    - Need to diversify dataset 
-- Trial with small number of ~350 annotated images including Calisphere
-  - Somehow the model got worse with more data... time to reconsider object detection model? 
-  - No nvm just overfitted, however the confidence scores are still very low...
+In both an effort to [keep this case study accountable as it is a project which uses cultural heritage collections as data for machine learning], and as a demonstration of how [standardized guidelines] can be implemented and beneficial to research, the remainder of this section will follow the "Collections as ML Data" checklist for machine learning and cultural heritage recently developed by Benjamin Lee.[@lee_collections_2023] Observing the growing trend in the field of machine learning to develop guidelines, checklists, and best practices for researchers and practitioners involved in creating datasets, training models, and implementing machine learning systems, Lee proposes the creation of his "Collections as ML Data" checklist for researchers working on machine learning projects involving cultural heritage collections that is intended to help researchers address potential challenges such as misrepresentation, oversimplification of digitization nuances affecting model performance, unnecessary use of machine learning, lack of sustainability planning, and privacy violations. By incorporating this checklist into their projects, researchers can engage more thoughtfully with these challenges and enhance their impact on the field of digital cultural heritage.[@lee_collections_2023, 2] Lee's article draws from both machine learning and cultural heritage research, creating an interdispilinary tool for responsible data practices. [The checklist in its original form will be attached as an appendix to this project].
+
+## The Cultural Heritage Collection as Data
+
+## The Machine Learning Model
+
+## Results
+- **Common false detections with low confidence**
+  - Ink traces from hands 
+  - Ink bleeding through page
+  - Ink *spills* --> 4-104184376_117783810.3.jpg + 1-104184376_117783798.3.jpg + 1-104185025_108810164.3.jpg
+  - Punctuation marks, specifically near the edge of pages --> likely because these were common additions within training dataset
+  - Alllll the illustrations! --> flaw in training dataset, because my training dataset had very minimal examples that included illustrations on the page alongside marginalia, so the model never learned to differeniate between these types of "free form" shapes
+    - 1-104184255_108855224.3.jpg
+  - Rougher italicized printed characters --> 3-104185490_108497877.3.jpg
+  - Printing errors --> 3-104185187_108783152.3.jpg
+  - Mold? --> 1-104184967_108514317.3.jpg
+- **Correct detections with high confidence!**
+  - Tally counts with... bumps at the bottom? --> 3-104184172_107126626.3.jpg
+  - Corrections 
+    - 3-104184259_117727836.3.jpg
+    - 1-104184114_107132470.3.jpg
+    - 1-104184114_107132614.3.jpg
+    - 1-104184609_117862453.3.jpg
+    - 1-104186970_108556377.3.jpg
+    - 1-104186974_108555093.3.jpg
+    - 2-104184563_107732091.3.jpg
+    - 2-104186204_108603861.3.jpg
+    - 2-104186498_108932684.3.jpg
+    - 2-104186701_108895016.3.jpg --> marginalia itself crossed out?
+    - 2-104186764_108890840.3.jpg
+  - Reading symbols
+    - Pencilled in "+" at certain passages --> 3-104184226_117728712.3.jpg
+    - X --> 6-104184266_110322787.3.jpg
+    - 1-104184533_117804073.3.jpg
+    - Single quotation mark? --> 1-104185779_108640353.3.jpg
+  - Names! aka marks of ownership
+    - 3-104184332_107738522.3.jpg
+    - 3-104184453_117819238.3.jpg
+    - 3-104184464_117818194.3.jpg (maybe)
+    - 3-104184785_108842240.3.jpg (maybe)
+    - 3-104184966_108655149.3.jpg
+    - 3-104185289_108761552.3.jpg
+    - 3-104186155_108957200.3.jpg
+    - 3-104186159_108956048.3.jpg
+    - 3-104186165_108954512.3.jpg
+    - 3-104186421_108584229.3.jpg
+    - 3-104186666_108900104.3.jpg
+    - 4-104186404_108936008.3.jpg
+    - 5-104184636_117859831.3.jpg
+    - 7-104185577_108731984.3.jpg
+    - 1-104184108_107133646.3.jpg
+    - 1-104184130_107130322.3.jpg
+    - 1-104184176_107125774.3.jpg
+    - 1-104184326_107740094.3.jpg
+    - 1-104184338_117794873.3.jpg
+    - 1-104185334_108651021.3.jpg
+    - 1-104185482_108499401.3.jpg
+    - 1-104186162_108955376.3.jpg
+    - 1-104186168_108953648.3.jpg
+    - 1-104186173_108952400.3.jpg
+    - 1-104186220_108599157.3.jpg
+    - 1-104186661_108901580.3.jpg
+    - 1-104186661_108902024.3.jpg
+    - 1-104186661_108902084.3.jpg
+    - 1-104186662_108901292.3.jpg
+    - 1-104186662_108901436.3.jpg
+    - 2-104184130_107130262.3.jpg --> Thomas [] is my name
+    - 2-104184130_107130298.3.jpg
+    - 2-104184538_117803089.3.jpg
+    - 2-104184638_117859675.3.jpg
+    - 2-104184913_108517749.3.jpg
+    - 2-104185019_108811688.3.jpg
+    - 2-104185116_108791048.3.jpg
+    - 2-104185291_108761168.3.jpg
+    - 2-104186605_108916952.3.jpg
+    - 2-104186611_108915608.3.jpg
+    - 2-104186613_108915224.3.jpg
+    - 2-104186616_108914360.3.jpg
+    - 2-104186661_108901592.3.jpg
+    - 2-104186661_108901724.3.jpg
+    - 2-104186661_108901904.3.jpg
+    - 2-104186662_108901232.3.jpg
+    - 2-104186664_108900680.3.jpg
+    - 2-104186665_108900392.3.jpg
+    - 2-104186909_108875324.3.jpg
+  - Numbers 
+    - 3-104184398_117781194.3.jpg
+    - 3-104184745_108848768.3.jpg
+    - 3-104184757_108847616.3.jpg
+    - 3-104184760_108847328.3.jpg
+    - 3-104184878_108656301.3.jpg
+    - 3-104184909_108518085.3.jpg
+    - 3-104184932_108516069.3.jpg
+    - 3-104186255_108595413.3.jpg
+    - 3-104186694_108896456.3.jpg
+    - 3-104186697_108896168.3.jpg
+    - 3-104186879_108565005.3.jpg
+    - 4-104184885_117873668.3.jpg
+    - 1-104184171_107126638.3.jpg
+    - 1-104184207_117733095.3.jpg
+  - A hand written note pasted(?) onto a page
+    - 3-104184787_108841844.3.jpg
+    - 4-104184787_108841832.3.jpg
+  - Early archival notes
+    - 3-104185979_108699452.3.jpg
+    - 5-104185187_108783440.3.jpg
+    - 6-104185224_108772496.3.jpg
+    - 1-104184805_108836552.3.jpg
+    - 1-104187060_108682640.3.jpg
+    - 2-104184172_107126542.3.jpg
+    - 2-104184199_106035047.3.jpg
+  - Marks that are so blown out they're illedgable
+    - 3-104186186_108608757.3.jpg
+    - 1-104184529_117811183.3.jpg
+    - 1-104185101_108795080.3.jpg
+    - 1-104186147_108609489.3.jpg
+    - An interesting history of the object and a way in which the physical properties of the book become apparent despite digital format --> paper sizing and ink quality
+  - Edition of copy?
+    - 3-104186206_108603189.3.jpg 
+    - 3-104186209_108602325.3.jpg
+    - 1-104184348_117791259.3.jpg
+    - 1-104184546_117825404.3.jpg
+    - 1-104184547_117824819.3.jpg
+  - Mathematics? 
+    - 4-104184395_117781482.3.jpg
+    - 1-104184339_117794501.3.jpg
+    - 2-104185268_108766292.3.jpg
+  - Pen test?
+    - 4-104186492_108579789.3.jpg
+    - 1-104184494_117804877.3.jpg
+    - 1-104186607_108916760.3.jpg
+    - 1-104186856_108879740.3.jpg
+    - 2-104184552_117823820.3.jpg
+    - 2-104184555_117823135.3.jpg
+    - 2-104186506_108930860.3.jpg
+  - Authorship/literature notes
+    - 6-104185152_108652557.3.jpg
+    - 6-104185475_108740312.3.jpg
+    - 1-104184517_117813655.3.jpg --> date
+    - 1-104184896_108519237.3.jpg
+    - 1-104185223_108772784.3.jpg
+    - 1-104186066_108959336.3.jpg
+    - 2-104184643_108522141.3.jpg
+    - 2-104184792_108840536.3.jpg
+    - 2-104184898_108519045.3.jpg
+    - 2-104184906_108518277.3.jpg
+    - 2-104185246_108652461.3.jpg
+    - 2-104187045_108542625.3.jpg
+  - Price six pence --> 2-104184330_107738714.3.jpg
+  - Check metadata
+    - 3-104186661_108901604.3.jpg
+    - 3-104186661_108901892.3.jpg
+    - 3-104186661_108902012.3.jpg
+    - 3-104186702_108894440.3.jpg
+    - 3-104186970_108556221.3.jpg --> Angry note?
+    - 4-104185548_108735344.3.jpg
+    - 4-104185988_108696848.3.jpg
+    - 4-104186147_108609405.3.jpg
+    - 4-104186710_108573705.3.jpg
+    - 5-104186416_108933272.3.jpg
+    - 7-104184636_117859783.3.jpg
+    - 13-104184859_108661101.3.jpg
+    - 1-104184173_107126446.3.jpg
+    - 1-104184192_117739269.3.jpg
+    - 1-104184357_117788595.3.jpg
+    - 1-104184460_117818578.3.jpg
+    - 1-104184701_108853064.3.jpg + 1-104184701_108853088.3.jpg
+    - 1-104185059_108800360.3.jpg
+    - 1-104185192_108781712.3.jpg
+    - 1-104185477_108739832.3.jpg
+    - 1-104186019_108690800.3.jpg
+    - 1-104186389_108939476.3.jpg
+    - 1-104186656_108903320.3.jpg
+    - 1-104186825_108888644.3.jpg
+    - 2-104184321_104821590.3.jpg
+    - 2-104185477_108740036.3.jpg
+    - 2-104185482_108499437.3.jpg
+    - 2-104186661_108902096.3.jpg
+    - 2-104186662_108901160.3.jpg
+
+## Organizational Considerations
+
+## Copyright, Transparency, Documentation, Maintenance, and Privacy
 
 
 - While writing, was easily able to refer back to the pages annotated and find examples through using the search function
@@ -165,42 +325,64 @@ What is the task that the model is being deployed to perform? +
 Who trained, finetuned, and/or deployed this model? (Mitchell et al., 2019)}
 - For the purpose of object detection, I chose to use the YOLOv7 model.[@wang_yolov7] In general, the "You Only Look Once" family of models function by processing the entire image just once to detect objects instead of iteratively analyzing an image multiple times at different scales to identify objects as other object detection models have traditionally done, which makes YOLO models perform the task of object detection faster and more efficiently compared to other models. YOLO models do this by first dividing a picture into a grid of smaller sections, and then for each of these smaller sections, the model tries to predict whether or not there is an object present in that grid, and if so, what kind of object it might be through drawing bounding boxes around the entirety of the possible object and assigning it a label. For each of these boxes drawn, the model will also assign a confidence score, which indicates how sure the model is that an object in that box. If the score is high, it means the model is quite confident, and conversely, if it is low, it is less certain. Lastly, after predicting objects in all of the image's sections, the model eliminates any object that may have multiple bounding boxes drawn around it using a technique called Non-Maximum Suppression, which selects the best bounding boxes by keeping those with the highest confidence score and removing overlap or redundancy.
 - Compared to models that break the image down into more granular, pixel-level segmentation, YOLO models' single-pass approach can struggle with smaller objects or complex scenery, however, should these limitations be considered when creating the training dataset, these issues can be countered through methods such as the addition of negative examples or data augmentation as described previously.
+- The goal of this model is to detect marginalia present in the NLS chapbooks dataset in order gain a sense of how chapbooks were used by those who interacted with them. It is unlikely that the model will achieve exceptionally high performance due to the small amount of training data, however with YOLOv7's efficient learning capabilities it is likely that the model will achieve a standard of performance that will be acceptable to garner the "bird's eye view" of the chapbooks desired for this experiment.
 Across what organizations or institutions did this training, finetuning, and/or deployment take place? (Mitchell et al., 2019)
 What funding was utilized? (Gebru et al., 2020)
+- The training was performed by myself, a graduate student at Carleton University, and utilized my own funds which are a product of awards and grants from both external and internal sources at Carleton.
 
 Training/finetuning:
-
-Was the model trained from scratch?
+- My dataset is small, so rather than training a model from scratch which would likely yield poor results due to this limitation, I chose to use transfer learning with one of YOLOv7's pretrained models. Transfer learning is a machine learning technique where a model that has been trained on one task is repurposed or "finetuned" for a different but related task. Instead of starting from scratch, the knowledge gained from solving one problem is transferred to help solve a different problem; this not only saves time and resources since the model is not being built from the ground up, it also builds upon what the model has already learned about recognizing characteristics such as shapes and patterns, making it more efficient and effective at expanding this [palette].
+{Was the model trained from scratch?
 If so, what data was used to train the model? (Mitchell et al., 2019)
 If not, was a pre-trained model utilized? Where can more information on the pre-trained model be found? (Mitchell et al., 2019)
 Was the pre-trained model finetuned? If so, what data was utilized for finetuning?
-If training or finetuning was performed, what computational resources were utilized?
+If training or finetuning was performed, what computational resources were utilized?}
+- Under the guidance of the YOLOv7 paper, while also accounting for the techincal parameters of my dataset and hardware being used, I chose the YOLOv7-E6 pretrained model to build off of. The YOLOv7-E6 model is designed for larger input sizes, that is to say, higher resolution images, which helps in capturing smaller details in an image, as well as for use with cloud GPUs.[@wang_yolov7, 6] Cloud GPUs are remote graphics processing units that can be rented or accessed on-demand through cloud computing services for various computational tasks, particularly those involving machine learning workloads since machine learning makes use of the parallel processing capabilities GPUs possess which allow for multiple calculations to be done simultaneously, making complex computation faster and more efficient. In general, cloud GPUs are used because they allow for the use of a more powerful GPU than one typically has on hand, however they can also be [a more environmentally conscious choice]; cloud computing allows for resource sharing among multiple users which reduces the overall energy consumption compared to individuals running their own hardware. To train my model, I chose to use an NVIDIA RTX A6000 from provider Vast.ai, a market-based cloud computing platform which allows all compute providers [large and small] to easily share their devices' spare capacity, due to the high amount of virtual memory which is necessary when training with a higher image resolution, but also because it was available from a Swedish data centre; nearly 75% of electricity production in Sweden comes from renewable, green energy sources, meaning that using a GPU located in Sweden will likely produce less carbon dioxide emissions compared to a GPU present elsewhere.[@https://sweden.se/climate/sustainability/energy-use-in-sweden]
 
 Evaluation:
 
 How was the model's performance evaluated? (Mitchell et al., 2019)
+- The key metrics produced upon testing a YOLOv7 model to evaluate its performance are precision, recall, and mean average precision (mAP). Precision is the ratio between actual positive detections and all positive detections; in the context of this model, that would be the measure of marginalia detected on the page out of all the marginalia actually present. Recall indicates how well a model correctly detects [] broadly; thus, for all the marginalia present, recall tells us how many were correctly detected. The mAP compares the bounding box that was drawn by the annotator, the ground-truth bounding box, to the bounding box detected by the model and returns a score; this score determines if an object has been successfully detected or not. YOLOv7 evaluates the model using mAP@.5 specifically; the appended .5 indicates the Intersection-over-Union (IoU) threshold, which measures the minimum overlap between the model's predicted boundary and the ground truth in order for the detection to be considered correct. After training the model for 150 epochs, a single epoch being one pass through the entire training dataset during the training process, when [tested] on the test set of pages the model outputted a precision score of 77.6%, a recall score of 79.5%, and a mAP@.5 of 77.1%. So, when the model predicts marginalia it is generally correct, and the model is able to find and capture a substantial portion of the actual marginalia. Considering the small size of the training dataset and the goals of this project as a whole, these results are [acceptable enough] that the model should provide reasonably accurate detections of marginalia when applied to the NLS chapbook dataset. 
+
+- A low precision and high recall implies that most of the ground-truth objects have been detected, but the majority of the predictions that the model make is incorrect.
+  - When a model has high recall but low precision, then the model classifies most of the positive samples correctly but it has many false positives(i.e. classifies many Negative samples as Positive).
+  
 What data was used for evaluation? (M. Arnold, Bellamy, et al. (2019); Mitchell et al., 2019)
+- The `val` set was used for evaluating the model during the process of training, and the `test` set was used for evaluating the model after it completed training.
+
 If the model involves data pertaining to people, has the model been audited for fairness and bias using tools such as FairLearn? (M. Arnold, Bellamy, et al. (2019); Bird et al., 2020; Diakapoulos et al., n.d.; Jakeway et al., 2020; Madaio et al. (2020); Reisman et al., 2018)
+- N/A
 Have any tools been utilized to generate explanations for predictions (i.e., LIME Ribeiro et al. (2016), SHAP Lundberg and Lee (2017), TCAV (Kim et al., 2018)) and modify the model in response? (M. Arnold, Bellamy, et al. (2019); Cordell, 2020; Diakapoulos et al., n.d.; Padilla, 2020; Ribeiro et al., 2020)
+- N/A
 
 Deployment:
 
 How was the model deployed? Was it used to make a single pass over the cultural heritage dataset in question, or will it be continuously deployed?
+- This model was primarily an experiment to test the output of my application, thus only intended to make a single pass over the cultural heritage dataset, however the model is available to be used by or even enhanced by others through [].
 What computational resources were utilized for deployment?
+- N/A
 Are the metadata generated by the machine learning model (embeddings, classifications, etc.) available as project deliverables?
+- Yes, in the Github repository.
 
 Release:
 
 Has the resulting model been made available for download? (if no, the following questions can be skipped)
+- Yes, [].
 What license has been provided? (Mitchell et al., 2019)
+- 
 Who are the primary intended users, and what are the intended use cases? (Mitchell et al., 2019)
+- Researchers who would like to reproduce my results, and/or improve upon them.
 Does this model have applicability outside of cultural heritage collections?
+- N/A
 What are ways that this model could be misused, either intentionally or unintentionally? (Madaio et al., 2020; Mitchell et al., 2019)
+- If someone did not read this work or [the repository which contains the model] for context, they may assume this model is more capable than it is and apply it in a context which it is inappropriate for, such as to enhance an archival search engine. Should a model like this be used in an institutional setting, higher performance metrics are necessary in order to minimize the risk of false positives or missed objects which would ultimately impair a user's ability to navigate the model's output.
 
 Environmental impact:
 
-What were the carbon emissions produced by training, finetuning, and/or deploying this model? (Cordell, 2020; Lacoste et al., 2019; Strubell et al., 2019)
-How does the environmental impact of this model compare to that of other components of the project, such as a collection's digitization or stakeholders’ flights to relevant conferences?
+{What were the carbon emissions produced by training, finetuning, and/or deploying this model? (Cordell, 2020; Lacoste et al., 2019; Strubell et al., 2019) + 
+How does the environmental impact of this model compare to that of other components of the project, such as a collection's digitization or stakeholders’ flights to relevant conferences?}
+- Undoubtly the most resource intensive component of this project was training the model. Although I did not track the carbon emissions of the model as it trained, I utilized the Machine Learning CO2 Impact calculator, which uses the formula of power consumption x time x carbon produced based on the local power grid to estimate the carbon emissions of my training.[@lacoste_quantifying_2019] Since Vast.ai follows a market place shared compute model, I used the Stockholm-based Amazon Web Services datacenter to [stand in for the Swedish datacenter which I rented the RTX A6000 used for training from]. Approximately 15 hours of computation was performed using this GPU, which has a TDP of 300W, between initial attempt at transfer learning and a following attempt after updating hyperparameters for better performance. Region eu-north-1 has a carbon efficiency of 0.05 kgCO$_2$eq/kWh thus the total emissions are estimated to be 0.23 kgCO$_2$eq, which is the equivalent of around 1km driven in a car with an internal combustion engine.
+    
 
 Organizational considerations
 Stakeholders:
@@ -213,10 +395,13 @@ Do groups affected by the project, such as individuals and communities directly 
 
 Use of machine learning:
 
-Was it necessary to use machine learning for this project?
-If so, why?
+{Was it necessary to use machine learning for this project? + 
+If so, why?}
+- The alternative to machine learning for this project would be [algorithmic] computer vision, using a series of image augmentations to identify areas of marginalia on a page. However, this approach would not lend well to generalization and be unable to consistently detect marginalia across a diverse dataset since it would not retain information discerned from the images analyzed prior.
+
 If not, why was machine learning still utilized?
 What are potential critiques of applying machine learning in this context?
+- Is it worth the negative impacts of training?
 
 Organizational context:
 
@@ -227,11 +412,15 @@ Do there exist programs or paths for training staff affiliated with the project 
 Project deployment and launch:
 
 Who is the target audience of this project? (Madaio et al., 2020)
+- Academics, researchers, those interested in the intersection of cultural heritage institutions and machine learning
 How does the target audience align with the audiences that the institution or organization is hoping to engage?
+- N/A
 If the target audience of the project is the public, does it make an attempt to educate the public regarding the machine learning approaches employed?
-Did the project launch reach the intended audience?*
+- Yes, this writing will be clearly affiliated with the technical output shared, and I have attempted to write the technical components this article with an individual who is unfamiliar with computational concepts and methods in mind.
+
+Did the project launch reach the intended audience?
 Has the project received feedback from stakeholders, including the audience? If so, what feedback has been received?*
-Has the launch of the project resulted in any changes to the project?*
+Has the launch of the project resulted in any changes to the project?
 
 (* = to be completed post-launch)
 
@@ -239,26 +428,37 @@ Copyright, transparency, documentation, maintenance, and privacy
 Copyright:
 
 Building on question 1.1.g, does copyright impact the dataset, model, code, or deliverables for the project? (Cordell, 2020; Gebru et al., 2020; Jakeway et al., 2020; Mitchell et al., 2019; Padilla, 2018)
+- No, all component of this project are free to use for the purpose of research.
 If they are made available, what licenses have been chosen?
 If they are proprietary, how does this impact re-use?
+
 Transparency and re-use:
 
 Can the project be audited by outsiders? If so, is there funding available to support outside audits? (Mitchell et al., 2019; Reisman et al., 2018)
 Is the code created for the project extensible for other cultural heritage researchers? (Padilla, 2020)
+- All code used in this project is available for others to freely inspect and use. The webscrapers may be of interest to those who want to collect data from the cultural heritage institutions I referenced, or even as examples of how to scrape similar interfaces. The notebook for training and testing the YOLOv7 model using transfer learning and can be repurposed by others to do the same with their own datasets.
 If so, does the project provide any tutorials or toolkits for re-use?
+- All code is commented and there is further context for each project element provided in the README of the case study's repository.
 
 Documentation:
 
 Does the project have documentation? (Katell et al., 2019)
+- Not formal documentation, however there are notes about use as well as this paper.
 If so, is the documentation interpretable by the project's audience?
+- Yes
 Is the project reproducible to an outside researcher, given the documentation available?
+- Yes
 
 Privacy:
 
 If the project is hosted online, are data on visitors collected? If so, what kinds of user data are collected? (Cordell, 2020)
+- I do not collect any data about visitors, however GitHub, where repositories related to this project, undoubtly do. From the GitHub Privacy Statement [https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement]:
+> GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub may also collect personal data from third parties.
 Is visitor consent gained before gathering online data? (Cordell, 2020)
+- Yes
 
 Maintenance:
 
-Will the project and code be maintained? (Gebru et al., 2020)
-If so, how frequently, and who will be responsible for maintaining it?
+{Will the project and code be maintained? (Gebru et al., 2020) +
+If so, how frequently, and who will be responsible for maintaining it?}
+- The project will be monitored so that should anyone need help with anything related to the project, they may raise an issue on GitHub and will receive a reply. I may develop some aspects of the project further, although this will be done in a repository separate from my MRE, however should this be the case I will update the MRE repository README with a clear link to any further developments.

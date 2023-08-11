@@ -4,6 +4,8 @@
 
 Applications of Technical work
 - Case study
+  - Enrich metadata --> discover new readers and their habits through their marks
+    - Pair with classifier to automate identification if collections substantial enough?
   - Detection of marginalia in digital collections like EEBO
   - HTR --> https://arxiv.org/abs/2303.05929
     - Ultimately was not able to reproduce their results/use their model --> was unable to get their scripts to work with my own data

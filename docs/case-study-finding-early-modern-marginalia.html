@@ -23,7 +23,7 @@
 <meta name="author" content="Chantal M Brousseau" />
 
 
-<meta name="date" content="2023-08-08" />
+<meta name="date" content="2023-08-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -124,8 +124,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html"><i class="fa fa-check"></i><b>5</b> Case Study: Finding Early Modern Marginalia</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#model"><i class="fa fa-check"></i><b>5.1</b> Model</a></li>
-<li class="chapter" data-level="5.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#data-preprocessing"><i class="fa fa-check"></i><b>5.2</b> Data Preprocessing</a></li>
+<li class="chapter" data-level="5.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-cultural-heritage-collection-as-data"><i class="fa fa-check"></i><b>5.1</b> The Cultural Heritage Collection as Data</a></li>
+<li class="chapter" data-level="5.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-machine-learning-model"><i class="fa fa-check"></i><b>5.2</b> The Machine Learning Model</a></li>
+<li class="chapter" data-level="5.3" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#results"><i class="fa fa-check"></i><b>5.3</b> Results</a></li>
+<li class="chapter" data-level="5.4" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#organizational-considerations"><i class="fa fa-check"></i><b>5.4</b> Organizational Considerations</a></li>
+<li class="chapter" data-level="5.5" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#copyright-transparency-documentation-maintenance-and-privacy"><i class="fa fa-check"></i><b>5.5</b> Copyright, Transparency, Documentation, Maintenance, and Privacy</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -152,71 +155,268 @@ div.csl-indent {
 <div id="case-study-finding-early-modern-marginalia" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number"> 5</span> Case Study: Finding Early Modern Marginalia<a href="case-study-finding-early-modern-marginalia.html#case-study-finding-early-modern-marginalia" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>DISCUSS: Data sources, data wrangling, annotation process, training model, technical results, historiographical results</p>
+<p>[When regarding collections as data, [we] have discussed the challenges faced relating to metadata, but what about the issues encountered when using collections as data [in their entirety]]? Machine learning models require large-scale data for training, fine-tuning, and evaluation, yet there is a shortage of large-scale datasets within in historical and cultural heritage domains that have slowed this form of techonlogical advancement in this field. Digitized cultural heritage collections can help bridge this gap, however, this requires that the institutions which hold this data be active participants in this shift to making their digtized collections open and accessible to use in ways other than simply viewing.</p>
+<p>Cultural heritage instituations are increasingly digitizing their collections and making them available through online portals for public consumption and discovery, the usability of their collections as data is rarely straightforward. Although standardized methods for the virtual exchange of digital collections through the use of Application Programming Interfaces (APIs) is becoming more prevalent, these APIs often lack comprehensive documentation on their usage beyond internal data retrieval. Further, while APIs offer a more formal way of accessing collections as data, many of those who seek to use collections as data find “simple download dumps” more useful to quickly explore what is a collection offers, as they provide direct access to data without the need to learn the intricacies of an API.<span class="citation"><a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a></span> Yet even when cultural heritage institutions do offer their data as downloadable content, it often ends up being in complex schema formats like METS, MODS, and ALTO XML, which, though standard in the library and archival domains, pose a barrier for use in contexts of data analysis, where formats such as CSV and JSON files are preferred due to the availability of programming libraries that can easily process these formats. Should the institution be unable to distribute their data in multiple formats, there should be clear documentation on their format of choice, how they are used, and ideally information or links to technical resources that allow transformation into other formats in a straightforward and reproducible way.<span class="citation"><a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a></span> To harness the full potential of their content, cultural heritage institutions cannot only rely on the ability of the researchers to access their data through [unmonitored] and time consuming means such as webscraping; instead, they must invest in more suitable ways to share their data, and in digital curation with a considerably broader scope of use, while also [integrating] their responsibilities to the content of their data regarding any ethical issues and inequities that may be present.</p>
+<p>As discussed in the context of metadata, the lack of attention paid to the curation of training data in machine learning has been a signficant topic of discussion as of recent, with research emerging from the [field of computer science] on recommendations for ethically sound and transparent standards for publishing datasets alongside calls for more “accountable” curation, as is perceived to be practiced in cultural heritage institutions. These discussions have fed into reflective research within [archival studies] on what ethical issues may arise when using cultural heritage data for the purpose of machine learning. Collections, in both digital and analogue form, are not just sources of history but also “its subjects, sites with histories and politics of their own.”<span class="citation"><a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a></span> Without criticial reflection on how collections have been curated in past and present, [], or what has and <em>has not</em> been digitized, there is the risk of models that are trained using these archives to replicate the epistemologies, injustices, and anxieties exemplified by previous archival orders without action taken toward resolution; even with good intentions, projects using cultural heritage data “risk kitschifying or exploiting those represented in the digitized collections in question.”<span class="citation"><a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a></span><span class="citation"><a href="#fn65" class="footnote-ref" id="fnref65"><sup>65</sup></a></span> [A recent demonstration of contested subjects and vulernable histories within digital archives is the Zealy Daguerreotypes], a series of photographs taken by Joseph T. Zealy featuring enslaved men and women in [various states of undress] commissioned by naturalist Louis Agassiz in 1850 as part of his effort to document physical evidence of polygenism. These daguerreotypes were uncovered in the attic of Harvard University’s Peabody Museum of Archaeology and Ethnology by an archivist in 1977, and are now featured in the Peabody Museum’s online collections, [being, in fact, the first of the search results for “daguerreotype”.[<a href="https://collections.peabody.harvard.edu/search/daguerreotype/objects" class="uri">https://collections.peabody.harvard.edu/search/daguerreotype/objects</a>]] Tamara Lanier, a descendant of two of Agassiz’s “subjects”, sued Harvard in 2019 for unlawfully possessing and profiting from the image of her ancestors, who as slaves could not have consented to these photos being taken and their further usage.<span class="citation"><a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a></span> Despite the [contention] surrounding these images, when viewing their entries within the digital archive there is no indication of the history associated with these photos in the metadata, no context given about the enslaved subjects or the fact the photographed individuals were enslaved, nor the photos’ purpose as “proof” of polygenesis by Agassiz. There is only a short disclaimer about historical language, which appears to be present on all items in the Peabody Museum’s online collections. These individuals are not safe from being commodified again; as images in the public domain, they could easily end up in scraped into a dataset and used for the purpose of [machine learning/image generation like DALLE].</p>
+<p>In both an effort to [keep this case study accountable as it is a project which uses cultural heritage collections as data for machine learning], and as a demonstration of how [standardized guidelines] can be implemented and beneficial to research, the remainder of this section will follow the “Collections as ML Data” checklist for machine learning and cultural heritage recently developed by Benjamin Lee.<span class="citation"><a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></span> Observing the growing trend in the field of machine learning to develop guidelines, checklists, and best practices for researchers and practitioners involved in creating datasets, training models, and implementing machine learning systems, Lee proposes the creation of his “Collections as ML Data” checklist for researchers working on machine learning projects involving cultural heritage collections that is intended to help researchers address potential challenges such as misrepresentation, oversimplification of digitization nuances affecting model performance, unnecessary use of machine learning, lack of sustainability planning, and privacy violations. By incorporating this checklist into their projects, researchers can engage more thoughtfully with these challenges and enhance their impact on the field of digital cultural heritage.<span class="citation"><a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a></span> Lee’s article draws from both machine learning and cultural heritage research, creating an interdispilinary tool for responsible data practices. [The checklist in its original form will be attached as an appendix to this project].</p>
+<div id="the-cultural-heritage-collection-as-data" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> The Cultural Heritage Collection as Data<a href="case-study-finding-early-modern-marginalia.html#the-cultural-heritage-collection-as-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="the-machine-learning-model" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> The Machine Learning Model<a href="case-study-finding-early-modern-marginalia.html#the-machine-learning-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="results" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Results<a href="case-study-finding-early-modern-marginalia.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><h2 id="scraping" class="hasAnchor">Scraping<a href="case-study-finding-early-modern-marginalia.html#scraping" class="anchor-section" aria-label="Anchor link to header"></a></h2></li>
-<li>Annotation and training model as an iterative process
+<li><strong>Common false detections with low confidence</strong>
 <ul>
-<li>Using YOLOv7 object detection model –&gt; most specialised for real-time object detection, which makes it good at object detection even when given a small number of examples to train from</li>
-<li>Stage 1: Will manually annotate a small number of images from AOR –&gt; the creators of this digital archive indicated which book pages have annotations, so it was very easy to obtain examples of annotated pages
+<li>Ink traces from hands</li>
+<li>Ink bleeding through page</li>
+<li>Ink <em>spills</em> –&gt; 4-104184376_117783810.3.jpg + 1-104184376_117783798.3.jpg + 1-104185025_108810164.3.jpg</li>
+<li>Punctuation marks, specifically near the edge of pages –&gt; likely because these were common additions within training dataset</li>
+<li>Alllll the illustrations! –&gt; flaw in training dataset, because my training dataset had very minimal examples that included illustrations on the page alongside marginalia, so the model never learned to differeniate between these types of “free form” shapes
 <ul>
-<li>For diversity, I also annotated a small selection of page excerpts from NLS Chapbooks archive which I uncovered in a previous object detection experiment that sought to find the woodcut illustrations present in chapbooks.</li>
+<li>1-104184255_108855224.3.jpg</li>
 </ul></li>
-<li>Stage 2: Transfer learning pt 1– freeze the backbone feature extraction layers of model and only train head layers which analyze extracted features and predict the presence, location, and class of objects in the image.
-<ul>
-<li>‘freeze’ refers to a process of fixing the weights of certain layers in the model during training –&gt; by freezing the layers, their weights are not updated during the training process, allowing them to retain the pre-trained knowledge.</li>
-<li>Addresses the challenge of a small dataset size by leveraging a pretrained model’s backbone layers (which have learned general features from a larger dataset) while only training the head layers –&gt; approach aims to benefit from the pre-existing knowledge captured by the backbone layers while adapting the model to the specific object detection task with limited data.</li>
+<li>Rougher italicized printed characters –&gt; 3-104185490_108497877.3.jpg</li>
+<li>Printing errors –&gt; 3-104185187_108783152.3.jpg</li>
+<li>Mold? –&gt; 1-104184967_108514317.3.jpg</li>
 </ul></li>
-<li>Stage 3: Transfer learning pt 2– unfreeze backbone feature extraction layers so that all layers can be trained using updated head weights from previous step</li>
+<li><strong>Correct detections with high confidence!</strong>
+<ul>
+<li>Tally counts with… bumps at the bottom? –&gt; 3-104184172_107126626.3.jpg</li>
+<li>Corrections
+<ul>
+<li>3-104184259_117727836.3.jpg</li>
+<li>1-104184114_107132470.3.jpg</li>
+<li>1-104184114_107132614.3.jpg</li>
+<li>1-104184609_117862453.3.jpg</li>
+<li>1-104186970_108556377.3.jpg</li>
+<li>1-104186974_108555093.3.jpg</li>
+<li>2-104184563_107732091.3.jpg</li>
+<li>2-104186204_108603861.3.jpg</li>
+<li>2-104186498_108932684.3.jpg</li>
+<li>2-104186701_108895016.3.jpg –&gt; marginalia itself crossed out?</li>
+<li>2-104186764_108890840.3.jpg</li>
+</ul></li>
+<li>Reading symbols
+<ul>
+<li>Pencilled in “+” at certain passages –&gt; 3-104184226_117728712.3.jpg</li>
+<li>X –&gt; 6-104184266_110322787.3.jpg</li>
+<li>1-104184533_117804073.3.jpg</li>
+<li>Single quotation mark? –&gt; 1-104185779_108640353.3.jpg</li>
+</ul></li>
+<li>Names! aka marks of ownership
+<ul>
+<li>3-104184332_107738522.3.jpg</li>
+<li>3-104184453_117819238.3.jpg</li>
+<li>3-104184464_117818194.3.jpg (maybe)</li>
+<li>3-104184785_108842240.3.jpg (maybe)</li>
+<li>3-104184966_108655149.3.jpg</li>
+<li>3-104185289_108761552.3.jpg</li>
+<li>3-104186155_108957200.3.jpg</li>
+<li>3-104186159_108956048.3.jpg</li>
+<li>3-104186165_108954512.3.jpg</li>
+<li>3-104186421_108584229.3.jpg</li>
+<li>3-104186666_108900104.3.jpg</li>
+<li>4-104186404_108936008.3.jpg</li>
+<li>5-104184636_117859831.3.jpg</li>
+<li>7-104185577_108731984.3.jpg</li>
+<li>1-104184108_107133646.3.jpg</li>
+<li>1-104184130_107130322.3.jpg</li>
+<li>1-104184176_107125774.3.jpg</li>
+<li>1-104184326_107740094.3.jpg</li>
+<li>1-104184338_117794873.3.jpg</li>
+<li>1-104185334_108651021.3.jpg</li>
+<li>1-104185482_108499401.3.jpg</li>
+<li>1-104186162_108955376.3.jpg</li>
+<li>1-104186168_108953648.3.jpg</li>
+<li>1-104186173_108952400.3.jpg</li>
+<li>1-104186220_108599157.3.jpg</li>
+<li>1-104186661_108901580.3.jpg</li>
+<li>1-104186661_108902024.3.jpg</li>
+<li>1-104186661_108902084.3.jpg</li>
+<li>1-104186662_108901292.3.jpg</li>
+<li>1-104186662_108901436.3.jpg</li>
+<li>2-104184130_107130262.3.jpg –&gt; Thomas [] is my name</li>
+<li>2-104184130_107130298.3.jpg</li>
+<li>2-104184538_117803089.3.jpg</li>
+<li>2-104184638_117859675.3.jpg</li>
+<li>2-104184913_108517749.3.jpg</li>
+<li>2-104185019_108811688.3.jpg</li>
+<li>2-104185116_108791048.3.jpg</li>
+<li>2-104185291_108761168.3.jpg</li>
+<li>2-104186605_108916952.3.jpg</li>
+<li>2-104186611_108915608.3.jpg</li>
+<li>2-104186613_108915224.3.jpg</li>
+<li>2-104186616_108914360.3.jpg</li>
+<li>2-104186661_108901592.3.jpg</li>
+<li>2-104186661_108901724.3.jpg</li>
+<li>2-104186661_108901904.3.jpg</li>
+<li>2-104186662_108901232.3.jpg</li>
+<li>2-104186664_108900680.3.jpg</li>
+<li>2-104186665_108900392.3.jpg</li>
+<li>2-104186909_108875324.3.jpg</li>
+</ul></li>
+<li>Numbers
+<ul>
+<li>3-104184398_117781194.3.jpg</li>
+<li>3-104184745_108848768.3.jpg</li>
+<li>3-104184757_108847616.3.jpg</li>
+<li>3-104184760_108847328.3.jpg</li>
+<li>3-104184878_108656301.3.jpg</li>
+<li>3-104184909_108518085.3.jpg</li>
+<li>3-104184932_108516069.3.jpg</li>
+<li>3-104186255_108595413.3.jpg</li>
+<li>3-104186694_108896456.3.jpg</li>
+<li>3-104186697_108896168.3.jpg</li>
+<li>3-104186879_108565005.3.jpg</li>
+<li>4-104184885_117873668.3.jpg</li>
+<li>1-104184171_107126638.3.jpg</li>
+<li>1-104184207_117733095.3.jpg</li>
+</ul></li>
+<li>A hand written note pasted(?) onto a page
+<ul>
+<li>3-104184787_108841844.3.jpg</li>
+<li>4-104184787_108841832.3.jpg</li>
+</ul></li>
+<li>Early archival notes
+<ul>
+<li>3-104185979_108699452.3.jpg</li>
+<li>5-104185187_108783440.3.jpg</li>
+<li>6-104185224_108772496.3.jpg</li>
+<li>1-104184805_108836552.3.jpg</li>
+<li>1-104187060_108682640.3.jpg</li>
+<li>2-104184172_107126542.3.jpg</li>
+<li>2-104184199_106035047.3.jpg</li>
+</ul></li>
+<li>Marks that are so blown out they’re illedgable
+<ul>
+<li>3-104186186_108608757.3.jpg</li>
+<li>1-104184529_117811183.3.jpg</li>
+<li>1-104185101_108795080.3.jpg</li>
+<li>1-104186147_108609489.3.jpg</li>
+<li>An interesting history of the object and a way in which the physical properties of the book become apparent despite digital format –&gt; paper sizing and ink quality</li>
+</ul></li>
+<li>Edition of copy?
+<ul>
+<li>3-104186206_108603189.3.jpg</li>
+<li>3-104186209_108602325.3.jpg</li>
+<li>1-104184348_117791259.3.jpg</li>
+<li>1-104184546_117825404.3.jpg</li>
+<li>1-104184547_117824819.3.jpg</li>
+</ul></li>
+<li>Mathematics?
+<ul>
+<li>4-104184395_117781482.3.jpg</li>
+<li>1-104184339_117794501.3.jpg</li>
+<li>2-104185268_108766292.3.jpg</li>
+</ul></li>
+<li>Pen test?
+<ul>
+<li>4-104186492_108579789.3.jpg</li>
+<li>1-104184494_117804877.3.jpg</li>
+<li>1-104186607_108916760.3.jpg</li>
+<li>1-104186856_108879740.3.jpg</li>
+<li>2-104184552_117823820.3.jpg</li>
+<li>2-104184555_117823135.3.jpg</li>
+<li>2-104186506_108930860.3.jpg</li>
+</ul></li>
+<li>Authorship/literature notes
+<ul>
+<li>6-104185152_108652557.3.jpg</li>
+<li>6-104185475_108740312.3.jpg</li>
+<li>1-104184517_117813655.3.jpg –&gt; date</li>
+<li>1-104184896_108519237.3.jpg</li>
+<li>1-104185223_108772784.3.jpg</li>
+<li>1-104186066_108959336.3.jpg</li>
+<li>2-104184643_108522141.3.jpg</li>
+<li>2-104184792_108840536.3.jpg</li>
+<li>2-104184898_108519045.3.jpg</li>
+<li>2-104184906_108518277.3.jpg</li>
+<li>2-104185246_108652461.3.jpg</li>
+<li>2-104187045_108542625.3.jpg</li>
+</ul></li>
+<li>Price six pence –&gt; 2-104184330_107738714.3.jpg</li>
+<li>Check metadata
+<ul>
+<li>3-104186661_108901604.3.jpg</li>
+<li>3-104186661_108901892.3.jpg</li>
+<li>3-104186661_108902012.3.jpg</li>
+<li>3-104186702_108894440.3.jpg</li>
+<li>3-104186970_108556221.3.jpg –&gt; Angry note?</li>
+<li>4-104185548_108735344.3.jpg</li>
+<li>4-104185988_108696848.3.jpg</li>
+<li>4-104186147_108609405.3.jpg</li>
+<li>4-104186710_108573705.3.jpg</li>
+<li>5-104186416_108933272.3.jpg</li>
+<li>7-104184636_117859783.3.jpg</li>
+<li>13-104184859_108661101.3.jpg</li>
+<li>1-104184173_107126446.3.jpg</li>
+<li>1-104184192_117739269.3.jpg</li>
+<li>1-104184357_117788595.3.jpg</li>
+<li>1-104184460_117818578.3.jpg</li>
+<li>1-104184701_108853064.3.jpg + 1-104184701_108853088.3.jpg</li>
+<li>1-104185059_108800360.3.jpg</li>
+<li>1-104185192_108781712.3.jpg</li>
+<li>1-104185477_108739832.3.jpg</li>
+<li>1-104186019_108690800.3.jpg</li>
+<li>1-104186389_108939476.3.jpg</li>
+<li>1-104186656_108903320.3.jpg</li>
+<li>1-104186825_108888644.3.jpg</li>
+<li>2-104184321_104821590.3.jpg</li>
+<li>2-104185477_108740036.3.jpg</li>
+<li>2-104185482_108499437.3.jpg</li>
+<li>2-104186661_108902096.3.jpg</li>
+<li>2-104186662_108901160.3.jpg</li>
+</ul></li>
 </ul></li>
 </ul>
-<p>Stage 1: Manual Annotation
-- Added “Notes” category to make note of any interesting finds
-- Trying to understand what the marginalia in Coalman’s Courtship is exactly –&gt; corrections? indicated in the notes of one annotation that marginalia appears to be an alternate phrasing
-- Annotator of J&amp;M’s Courtship appears to be making the same corrections –&gt; Same person?
-- Marginalia seems to be “updating” the language used in the story –&gt; perhaps chapbook was created earlier in the EM period and annotator is annotating it later in EM period
-- Despite more “modern” corrections/rephrasing, there are still many pieces of this reader’s marginalia that are not comprehensible to me –&gt; this could however, be used to identify a timeframe of when/where the marginalia was composed or who it was composed by
-- Word “auld” is used –&gt; usage of “auld” peaked in 1820s, but also Scottish/Irish/Northern England
-- Find myself referencing the image/archival metadata to aid in comprehension of the marginalia itself</p>
-<p>Stage 2.0: Training Model Rnd1
-- Trial with small number of ~250 annotated images
-- Low mAP @ 0.594 but still pretty good!
-- …However testing the model on unseen images reveals the flaw of primarily annotating images from AOR
-- Model almost exclusively looks for marginalia on page peripherals since this is where Dee and Harvey annotated the most
-- Need to diversify dataset
-- Trial with small number of ~350 annotated images including Calisphere
-- Somehow the model got worse with more data… time to reconsider object detection model?
-- No nvm just overfitted, however the confidence scores are still very low…</p>
+</div>
+<div id="organizational-considerations" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Organizational Considerations<a href="case-study-finding-early-modern-marginalia.html#organizational-considerations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="copyright-transparency-documentation-maintenance-and-privacy" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Copyright, Transparency, Documentation, Maintenance, and Privacy<a href="case-study-finding-early-modern-marginalia.html#copyright-transparency-documentation-maintenance-and-privacy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><p>While writing, was easily able to refer back to the pages annotated and find examples through using the search function</p></li>
 <li><p>Sherman discusses origin of marks in <em>Used Books</em> pg 27-28</p></li>
 <li><p>Confidence score 0.05 since model used without fragmentation of image can miss tiny details if detection not set to be very sensitive</p></li>
 <li><p>YOLOv7 recommends 1500 images per new class</p></li>
 </ul>
-<hr />
-<div id="model" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Model<a href="case-study-finding-early-modern-marginalia.html#model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li>Explain model</li>
-</ul>
-</div>
-<div id="data-preprocessing" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Data Preprocessing<a href="case-study-finding-early-modern-marginalia.html#data-preprocessing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>In total, 353 images of early modern book pages were annotated. Added in to this set of images was 20 [negative examples], that is, pages which contain no marginalia. Another advantage of the YOLO algorithim is that there is typically little need for negative examples; in the intial step of dividing the inputted image into a grid then [analyzing] each segment, the model will naturally learn how to identify “no object” since a majority of images will not contain objects in every grid segment. However, when the images being used to train the model are “busy” with the objects being detected possibly being present across the entire page, such as with images of traffic or in our case, with pages of text and profilic annotation, training results can be improved through the intentional addition of negative examples to reduce false positives caused by heavy overlap of desired objects and [background] objects.</p></li>
-<li><p>This set of images was then randomly split using the standard 80/20 training/test ratio, with 298 (~80%) images being used to <em>train</em> the model, 37 (~10%) images being used to <em>validate</em> the model while it trains, and 38 (~10%) images to test the results of the trained model.</p></li>
-<li><p>YOLOv7 recommends 1500 images per new class, so to give this small dataset a fighting chance at successfully detecting marginalia, I applied various transformations to the original training images to create augmented versions of this data. These transformations modified the images in ways that preserve their essential features but introduce variation that can enhance the model’s ability to generalize. Not only does data augmentation increase the amount of training data by by generating multiple versions of each original image, but also by presenting the model with different variations of the same image (e.g., different rotations, flips, translations, zoom levels, etc.), data augmentation helps the model learn to recognize important patterns and features that are invariant to those transformations. At the same time, it also helps prevent the model from memorizing specific details of the training data which results in “overfitting”– [we] want a model that detects meaningful and relevant features rather than memorizing specific examples.</p></li>
-<li><p>In the context of this case study, each of the 298 training images were augmented through added noise, added gaussian blur, randomly changed contrast, randomly changed brightness, and randomly changed saturation. This expanded the total training image set to 1788 (298*6).</p></li>
-<li><p>The following sections will be shaped by Benjamin Charles Germain Lee’s recently proposed framework for using collections as machine learning data.<span class="citation"><a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a></span></p></li>
-<li><p>My dataset for this case study was created using three digital archives, ranging from those being made intentionally friendly to computational use to ones following the [standard] archival model, each of which thus emboding the current conversations being had about digital archives as big data.</p></li>
-</ul>
-<p>The cultural heritage collection as data
-Here, a distinction is drawn between the cultural heritage collection being studied and the training dataset being utilized for the machine learning model. For example, a project might utilize a pre-trained model to generate embeddings for a photo collection. In this section, we consider the cultural heritage collection itself; in the section “The Machine Learning Model,” we consider the machine learning model’s training data.</p>
-<p>Dataset composition:</p>
-<p>Who or what is depicted in the dataset? (Gebru et al., 2020)
+<table style="width:18%;">
+<colgroup>
+<col width="18%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">## Model
+- Explain model</td>
+</tr>
+<tr class="even">
+<td align="left">## Data Preprocessing
+- In total, 353 images of early modern book pages were annotated. Added in to this set of images was 20 [negative examples], that is, pages which contain no marginalia. Another advantage of the YOLO algorithim is that there is typically little need for negative examples; in the intial step of dividing the inputted image into a grid then [analyzing] each segment, the model will naturally learn how to identify “no object” since a majority of images will not contain objects in every grid segment. However, when the images being used to train the model are “busy” with the objects being detected possibly being present across the entire page, such as with images of traffic or in our case, with pages of text and profilic annotation, training results can be improved through the intentional addition of negative examples to reduce false positives caused by heavy overlap of desired objects and [background] objects.
+- This set of images was then randomly split using the standard 80/20 training/test ratio, with 298 (~80%) images being used to <em>train</em> the model, 37 (~10%) images being used to <em>validate</em> the model while it trains, and 38 (~10%) images to test the results of the trained model.
+- YOLOv7 recommends 1500 images per new class, so to give this small dataset a fighting chance at successfully detecting marginalia, I applied various transformations to the original training images to create augmented versions of this data. These transformations modified the images in ways that preserve their essential features but introduce variation that can enhance the model’s ability to generalize. Not only does data augmentation increase the amount of training data by by generating multiple versions of each original image, but also by presenting the model with different variations of the same image (e.g., different rotations, flips, translations, zoom levels, etc.), data augmentation helps the model learn to recognize important patterns and features that are invariant to those transformations. At the same time, it also helps prevent the model from memorizing specific details of the training data which results in “overfitting”– [we] want a model that detects meaningful and relevant features rather than memorizing specific examples.
+- In the context of this case study, each of the 298 training images were augmented through added noise, added gaussian blur, randomly changed contrast, randomly changed brightness, and randomly changed saturation. This expanded the total training image set to 1788 (298*6).</td>
+</tr>
+<tr class="odd">
+<td align="left">- The following sections will be shaped by Benjamin Charles Germain Lee’s recently proposed framework for using collections as machine learning data.<span class="citation"><a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a></span>
+- My dataset for this case study was created using three digital archives, ranging from those being made intentionally friendly to computational use to ones following the [standard] archival model, each of which thus emboding the current conversations being had about digital archives as big data.</td>
+</tr>
+<tr class="even">
+<td align="left">The cultural heritage collection as data
+Here, a distinction is drawn between the cultural heritage collection being studied and the training dataset being utilized for the machine learning model. For example, a project might utilize a pre-trained model to generate embeddings for a photo collection. In this section, we consider the cultural heritage collection itself; in the section “The Machine Learning Model,” we consider the machine learning model’s training data.</td>
+</tr>
+<tr class="odd">
+<td align="left">Dataset composition:</td>
+</tr>
+<tr class="even">
+<td align="left">Who or what is depicted in the dataset? (Gebru et al., 2020)
 - The dataset is composed of annotated pages from three digital archives.
 - Initially spurring this project was a small selection of annotated pages from the National Library of Scotland’s collection of chapbooks which I had made note of when they were erranously detected as illustrations, during previous work in which I attempted to classify pages in the corpus that contained illustrations. Since the ultimate goal for this case study is to intentionlly identify marginalia in this collection of chapbooks, I chose to incorporate these pages into the training data for both diversity and to provide domain specific examples in hopes of improving the trained model’s performance.
 - The <em>Archaeology of Reading</em> project which was a collaborative effort between the Sheridan Libraries, Centre for Editing Lives and Letters, and Princeton University library that resulted in a corpus of thirty-six fully digitized versions of early printed books annotated by “two of the most dedicated readers of the early modern period: John Dee and Gabriel Harvey”. Considering himself a scholar of science, the marginalia composed by Dee feature tables, charts, and diagrams to make sense of what he read. In contrast, Harvey was a humanist and approached his selection of reading as such with passages highlighted through underlining and notes connecting the text to other works read.
-- A collection of Early Modern annotated books compiled by the William Andrews Clark Memorial Library at the University of California, Los Angeles which span from the 15th century up until the early 19th century. The marginalia of this collection are the most diverse of these sources, containing the scrawl of not only scholars, but printers and other members of the community as well.<br />
+- A collection of Early Modern annotated books compiled by the William Andrews Clark Memorial Library at the University of California, Los Angeles which span from the 15th century up until the early 19th century. The marginalia of this collection are the most diverse of these sources, containing the scrawl of not only scholars, but printers and other members of the community as well.
 If the dataset depicts people, are any specific subgroups of people represented? Are any specific individuals personally identifiable? (Gebru et al., 2020)
 - N/A
 If the dataset depicts people, are any individuals still living? Does this project comply with privacy laws in countries where it will be shared?
@@ -235,9 +435,13 @@ What metadata is available for the dataset items? (Holland et al., 2018)
 Does copyright impact this dataset? If so, how? (Cordell, 2020; Gebru et al., 2020; Jakeway et al., 2020; Padilla, 2018)
 - All data used falls in the public domain and is only being used for research purposes. Further, there appears to be no restrictions from any of the archives indicating that the extracted images cannot be shared in a research context, thus the dataset can be made accessible on an unmonetized platform.
 Does this dataset pertain to a difficult history? If so, what extra precautions are being taken?
-- N/A</p>
-<p>Collecting process and curation rationale (language borrowed from Bender and Friedman (2018)):</p>
-<p>Who curated the cultural heritage collection from which this dataset is derived?
+- N/A</td>
+</tr>
+<tr class="odd">
+<td align="left">Collecting process and curation rationale (language borrowed from Bender and Friedman (2018)):</td>
+</tr>
+<tr class="even">
+<td align="left">Who curated the cultural heritage collection from which this dataset is derived?
 - The NLS Data Foundry’s collection of chapbooks are part of the Lauriston Castle Collection, which is based on the library built up by William Robert Reid (1854-1919), a wealthy Edinburgh businessman who had acquired Lauriston Castle, on the western outskirts of the city, in 1902.[<a href="https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598" class="uri">https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598</a>] Reid had been assisted in his book collecting by a family friend, John A Fairley, author of several articles on the bibliography of chapbooks. In the course of his researches Fairley had formed a collection of chapbooks, containing around 500 volumes comprising over 5,500 items, which are now also part of the collection. The chapbooks are organised according to the town where they were printed. The majority of them are Scottish but there are also English and Irish volumes in the collection.
 - The books that make up the AOR were selected and annotated by a collective of researchers at the Sheridan Libraries, Centre for Editing Lives and Letters, and Princeton University library, however, the lead researchers Earle Havens, Anthony Grafton, and Lisa Jardine likely had the strongest curatorial role.
 - The Early Modern Annotated Books collection hosted on Calisphere was curated by the William Andrews Clark Memorial Library, which is administered by UCLA’s Center for 17th- &amp; 18th-Century Studies. This rare book and manuscript library specializes in the study of England and the Continent from the Tudor period through the long eighteenth century.[<a href="https://calisphere.org/institution/62/collections/" class="uri">https://calisphere.org/institution/62/collections/</a>]
@@ -248,7 +452,7 @@ What organization or institution was the collection created for?
 What funding was utilized (if known)?
 - NLS’s Data Foundry is a permanant [branch] of their library and thus no specific funding appears to have been secured to produce this data.
 - The research and development of AOR was conducted with major funding from the Andrew W. Mellon Foundation.
-- The digitization of the Early Modern Annotated Books collection was initially a 2014 pilot project to digitize just ten annotated books from the Clark library, largely shaped by CLIR postdoctoral fellow Philip Palmer. A small grant from the Gladys Krieble Delmas Foundation allowed the ten books to be transcribed through the hiring of three graduate students onto the project.<span class="citation"><a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a></span> The further digitzation of annotated books within the Clark’s collections was made possible through funding from the National Endowment for the Humanities, which awarded the library a Humanities Collections and Reference Resources Grant in 2017.
+- The digitization of the Early Modern Annotated Books collection was initially a 2014 pilot project to digitize just ten annotated books from the Clark library, largely shaped by CLIR postdoctoral fellow Philip Palmer. A small grant from the Gladys Krieble Delmas Foundation allowed the ten books to be transcribed through the hiring of three graduate students onto the project.<span class="citation"><a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a></span> The further digitzation of annotated books within the Clark’s collections was made possible through funding from the National Endowment for the Humanities, which awarded the library a Humanities Collections and Reference Resources Grant in 2017.
 What collection process was utilized? (Bender &amp; Friedman, 2018)
 - The AOR provides the most extensive and transparent description of their collection process, largely in the form of an article on how to “do” AOR yourself, that is, how to replicate their work using a researcher’s own corpus. They do however also summarize the formation of their corpora in brief, by stating that “the composition of the AOR corpora depended on a number of factors, including the costs of digitization, the availability of books, the books owned by partner institutions, and the particular research interests of the scholars involved.”[<a href="https://archaeologyofreading.org/how-to-do-aor-yourself/" class="uri">https://archaeologyofreading.org/how-to-do-aor-yourself/</a>]
 - Although the NLS does not make their collection process in the context of digitzing materials clear, they do offer information about how the chapbooks which were digtized were aquired. The Lauriston Castle Collection was bequeathed to the Library in 1926 by Mr and Mrs Reid, following the latter’s death that year. This bequest also included the Reid Fund, consisting of £70,000, the income from the estate of Mr and Mrs Reid, which subsequently enabled the Library to acquire printed and manuscript items to add to the national collections.[<a href="https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598" class="uri">https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598</a>]
@@ -268,67 +472,128 @@ What were the decision-making processes behind the collection’s curation? (Ben
 - According to the METS data, the NLS chapbook’s digital form was curated as part of Library activities to make more Scottish collections available online, and chapbooks were selected for this task due to ease as all volumes are the same size.
 - AOR has the most extensive discussion on the curation of their collection, with dedicated essays on the libraries of Harvey and Dee. Although it is thought that Harvey’s library once contained up to 4000 books, following his death it was dispersed with his books scattered in private, public, and academic libraries around the world.[<a href="https://archaeologyofreading.org/gabriel-harvey-his-library-and-the-aor-corpus/" class="uri">https://archaeologyofreading.org/gabriel-harvey-his-library-and-the-aor-corpus/</a>] So, the selection of which of his books to digitzed for the AOR project was in large part a practical endeavour; the first books chosen were the nine in the possession of the Princeton University Library, one of their partnering institutions. In addition these nine books, other titles were added to the Harvey AOR corpus often based on factors such as availability (does the binding allow for the book to be digitized?) and the affordability of digitization within a given repository. The Princeton books alone did not form thematic unity, as much as they reflected Harvey’s intellectual interests in topics of warfare, (Roman) history, law, political economy (i.e., husbandry), and linguistics. However, the the inclusion of five other titles alongside those at Princeton allowed for the expansion of the topics and the formation of “clusters” of books: books which thematically overlap, and which may have been read in conjunction with one another, as Harvey enjoyed doing.
 - While Dee’s library was also dispersed posthumously, and in part, prior to his death due to financial troubles, he created a detailed catalouge of his books at numerous points in his life, which made his pursuits much more easily traceable.[<a href="https://archaeologyofreading.org/john-dee-his-library-and-the-aor-corpus/" class="uri">https://archaeologyofreading.org/john-dee-his-library-and-the-aor-corpus/</a>] Like when constructing Harvey’s AOR corpus, factors such as the availability of books and the price charged by the various institutions for their digitization were taken into account, however with more choice being present due to the number of identifiable books annotated by Dee, further decision about what of his library should be digitise relied on intellectual interest. It was decided that primarily, the books selected from Dee should comprise of types and styles of reader interventions that are not represented in the Harvey corpus, as Dee’s corpus contains a number of new interventions, including the use of additional symbols, genealogical trees, complex astrological charts, dense tables, and expansive drawings. Additionally, in order to further reflect a variety of reading and annotation strategies, the AOR Dee corpus also includes lightly annotated books such as Euclid’s <em>Elementorum libri XV</em>, as well as different book formats, ranging from Cicero’s <em>Opera</em> in folio to Gerhard Dorn’s <em>Chymisticum artificium</em> in octavo. Lastly, in relation to Dee’s library as a whole, as in Harvey’s corpus, the books included in Dee’s corpus were selected to reflect the various intellectual interests which Dee pursued throughout his life, including mathematics, astrology/astronomy, medieval history, and New World discovery. The ultimate goal when curating both corpora was an act of balance, reflecting the attempt to cover a representative selection of both readers’ intellectual interests and the ways in which they interacted with their books.
-- In contrast, there is very little information about the decision-making process made in the curation of Early Modern Annotated Books collection. The choice to digitise annotated books seems to derive from Palmer’s CLIR postdoctoral fellowship on the subject of “Manuscript Annotations in Early Modern Printed Books.”; the project started from a selection of ten annotated books, which Palmer described as being “representative of the characteristic idiosyncrasy that historicdal readers brought to their material readings of books.”<span class="citation"><a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a></span>
+- In contrast, there is very little information about the decision-making process made in the curation of Early Modern Annotated Books collection. The choice to digitise annotated books seems to derive from Palmer’s CLIR postdoctoral fellowship on the subject of “Manuscript Annotations in Early Modern Printed Books.”; the project started from a selection of ten annotated books, which Palmer described as being “representative of the characteristic idiosyncrasy that historicdal readers brought to their material readings of books.”<span class="citation"><a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></span>
 What is unknown about the collection process and curation rationale?
 - The NLS’s reasoning for choosing to digitise the chapbooks is very straightforward, and their process of digitisation is made transparent in the METS data included with each chapbook. What is missing, however, from the process of collection and curation is a question of <em>who</em>. In consideration of the original, physical collection of chapbooks, it is not known who owned them prior to Fairley. It is not documented who catalogued the chapbooks prior to digitisation, nor following it, and it is not known who then transformed the chapbooks into the form it takes in NLS’s Data Foundry.
 - The creation of AOR is extensively documented, and the provenance of each phyiscal book digitised is relatively traceable due to the [fame] of their annotators. The central gap of note in this collection is the process of digitization. This is likely owing to the fact that there were multiple institutions involved in creating the corpora, each having their own digitization process, personnel, and equipment.
-- The Early Modern Annotated Books collection is the collection which leaves the most unknowns, and this seems to be at least in part due to the focus on the digitized books as being surrogates for the physical object, rather than a “new edition”.<span class="citation"><a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a></span> The metadata associated with each book appears to be about the physical book or where the physical book is within the holding institution, and this notion is affirmed by the Calisphere “statement on digital primary resources”.[<a href="https://calisphere.org/overview/" class="uri">https://calisphere.org/overview/</a>] In this statement, these digitzed entries are referred to as primary sources themselves and in their section discussing metadata, they are discussing metadata created from catalouging the physical item rather than from the digital. It seems that this may not have always been the case, given the pilot project which started the Early Modern Annotated Books collection attempted to incorporate elements of the AOR project’s XML schema for the original ten books, however this effort seemed to be abandoned once the project moved past the pilot, and even the XML files and transcribed annotations that did exist appear to be no more, with the link provided in the already obscured blog post describing this process being broken.<span class="citation"><a href="#fn65" class="footnote-ref" id="fnref65"><sup>65</sup></a></span></p>
-<p>Digitization pipeline (only applicable if the dataset is a digitized version of a physical collection):</p>
-<p>Who selected what was digitized?
+- The Early Modern Annotated Books collection is the collection which leaves the most unknowns, and this seems to be at least in part due to the focus on the digitized books as being surrogates for the physical object, rather than a “new edition”.<span class="citation"><a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a></span> The metadata associated with each book appears to be about the physical book or where the physical book is within the holding institution, and this notion is affirmed by the Calisphere “statement on digital primary resources”.[<a href="https://calisphere.org/overview/" class="uri">https://calisphere.org/overview/</a>] In this statement, these digitzed entries are referred to as primary sources themselves and in their section discussing metadata, they are discussing metadata created from catalouging the physical item rather than from the digital. It seems that this may not have always been the case, given the pilot project which started the Early Modern Annotated Books collection attempted to incorporate elements of the AOR project’s XML schema for the original ten books, however this effort seemed to be abandoned once the project moved past the pilot, and even the XML files and transcribed annotations that did exist appear to be no more, with the link provided in the already obscured blog post describing this process being broken.<span class="citation"><a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a></span></td>
+</tr>
+<tr class="odd">
+<td align="left">Digitization pipeline (only applicable if the dataset is a digitized version of a physical collection):</td>
+</tr>
+<tr class="even">
+<td align="left">Who selected what was digitized?
 - It is unknown who curated the NLS chapbook collection, both physical and digital
 - Since the content of AOR was assembled and digitised for the project, who selected what was digitsed was the same as those whoo curated the collection.
-- Philip Palmer selected the first ten books to be digitised for the Clark’s Early Modern Annotated Books collection, however it is unclear exactly which ones. Based on those which he discussed in his 2018 blog post, this ten may have included a copy of Sir Thomas Browne’s <em>Pseudodoxia epidemica</em>, a copy of the 1603 English translation of Montaigne’s <em>Essayes</em>, Richard Allestree’s <em>The Art of Contentment</em> (1675), Aleazar Albin’s <em>The Natural History of English Song-Birds</em> (1779), Sir Richard Blackmore’s <em>Prince Arthur</em>, and Voltaire’s <em>Dictionnaire Philosophique</em>.<span class="citation"><a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a></span>
+- Philip Palmer selected the first ten books to be digitised for the Clark’s Early Modern Annotated Books collection, however it is unclear exactly which ones. Based on those which he discussed in his 2018 blog post, this ten may have included a copy of Sir Thomas Browne’s <em>Pseudodoxia epidemica</em>, a copy of the 1603 English translation of Montaigne’s <em>Essayes</em>, Richard Allestree’s <em>The Art of Contentment</em> (1675), Aleazar Albin’s <em>The Natural History of English Song-Birds</em> (1779), Sir Richard Blackmore’s <em>Prince Arthur</em>, and Voltaire’s <em>Dictionnaire Philosophique</em>.<span class="citation"><a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a></span>
 What were the steps in the digitization pipeline? (For example, in the case of photos, what scanners were used to digitize the documents? In the case of documents, what OCR engines were utilized?)
 - The photos of each chapbook page were captured in the NLS’s Causewayside studio by Picturae, a digitization service provider, using a Nikon D800E camera. In the METS data, it is stated that transcriptions associated with each image file were generated from optical character recognition (OCR) performed by the National Library of Scotland. This itself is vague, but looking more deeply at the METS data, it can be seen that the images for each book were combined into a PDF format using a Luratech PDF application, and in the page level METS data, it is stated that <code>pdfalto</code>, a command line tool for parsing PDF files and producing structured XML representations of the PDF content in ALTO format, was used.
 - AOR– see above
 - Calisphere– see above
 What metadata was algorithmically produced?
-- None of the archives explicitly indicate that any of their metadata is algorithimically produced, however the NLS chapbook page transcriptions were created through the use of OCR, and the METS file for this collection were evidentally formatted through some sort of unstated automated process.</p>
-<p>Data provenance:</p>
-<p>What is the provenance of the dataset, from collection through digitization? (Bender &amp; Friedman, 2018; Diakapoulos et al., n.d.; Holland et al., 2018)
-- The process of collecting the images which would make up the training dataset</p>
-<p>Crowd labor:
+- None of the archives explicitly indicate that any of their metadata is algorithimically produced, however the NLS chapbook page transcriptions were created through the use of OCR, and the METS file for this collection were evidentally formatted through some sort of unstated automated process.</td>
+</tr>
+<tr class="odd">
+<td align="left">Data provenance:</td>
+</tr>
+<tr class="even">
+<td align="left">What is the provenance of the dataset, from collection through digitization? (Bender &amp; Friedman, 2018; Diakapoulos et al., n.d.; Holland et al., 2018)
+- The process of collecting the images which would make up the training dataset</td>
+</tr>
+<tr class="odd">
+<td align="left">Crowd labor:
 - There was no crowd labour used for this project, however it is important to consider that this project would very much benefit from additional team members, as more images could be annotated and thus a better performing model could be produced.
 Have volunteers or crowd workers added metadata to the dataset? (Cordell, 2020; Jakeway et al., 2020; Padilla, 2018)
 If so, how were they recruited and compensated?
-If so, what metadata did they produce? (i.e., transcriptions, annotations, etc.)</p>
-<p>Additional modification:</p>
-<p>Were any additional steps taken after collection curation and digitization in order to produce the dataset in question? (i.e., Were any items removed? Were any additional metadata added? etc.)
-- There was no additional modifications needed to produce the final dataset. All relevant metadata is present in the project save file created by my application, and since this was…</p>
-<p>The machine learning model
-Note: if multiple machine learning models were utilized in the project, this step should be completed for each model.</p>
-<p>Overview:</p>
-<p>{What model architecture has been utilized? (Mitchell et al., 2019) +
+If so, what metadata did they produce? (i.e., transcriptions, annotations, etc.)</td>
+</tr>
+<tr class="even">
+<td align="left">Additional modification:</td>
+</tr>
+<tr class="odd">
+<td align="left">Were any additional steps taken after collection curation and digitization in order to produce the dataset in question? (i.e., Were any items removed? Were any additional metadata added? etc.)
+- There was no additional modifications needed to produce the final dataset. All relevant metadata is present in the project save file created by my application, and since this was…</td>
+</tr>
+<tr class="even">
+<td align="left">The machine learning model
+Note: if multiple machine learning models were utilized in the project, this step should be completed for each model.</td>
+</tr>
+<tr class="odd">
+<td align="left">Overview:</td>
+</tr>
+<tr class="even">
+<td align="left">{What model architecture has been utilized? (Mitchell et al., 2019) +
 What is the task that the model is being deployed to perform? +
 Who trained, finetuned, and/or deployed this model? (Mitchell et al., 2019)}
-- For the purpose of object detection, I chose to use the YOLOv7 model.<span class="citation"><a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></span> In general, the “You Only Look Once” family of models function by processing the entire image just once to detect objects instead of iteratively analyzing an image multiple times at different scales to identify objects as other object detection models have traditionally done, which makes YOLO models perform the task of object detection faster and more efficiently compared to other models. YOLO models do this by first dividing a picture into a grid of smaller sections, and then for each of these smaller sections, the model tries to predict whether or not there is an object present in that grid, and if so, what kind of object it might be through drawing bounding boxes around the entirety of the possible object and assigning it a label. For each of these boxes drawn, the model will also assign a confidence score, which indicates how sure the model is that an object in that box. If the score is high, it means the model is quite confident, and conversely, if it is low, it is less certain. Lastly, after predicting objects in all of the image’s sections, the model eliminates any object that may have multiple bounding boxes drawn around it using a technique called Non-Maximum Suppression, which selects the best bounding boxes by keeping those with the highest confidence score and removing overlap or redundancy.
+- For the purpose of object detection, I chose to use the YOLOv7 model.<span class="citation"><a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a></span> In general, the “You Only Look Once” family of models function by processing the entire image just once to detect objects instead of iteratively analyzing an image multiple times at different scales to identify objects as other object detection models have traditionally done, which makes YOLO models perform the task of object detection faster and more efficiently compared to other models. YOLO models do this by first dividing a picture into a grid of smaller sections, and then for each of these smaller sections, the model tries to predict whether or not there is an object present in that grid, and if so, what kind of object it might be through drawing bounding boxes around the entirety of the possible object and assigning it a label. For each of these boxes drawn, the model will also assign a confidence score, which indicates how sure the model is that an object in that box. If the score is high, it means the model is quite confident, and conversely, if it is low, it is less certain. Lastly, after predicting objects in all of the image’s sections, the model eliminates any object that may have multiple bounding boxes drawn around it using a technique called Non-Maximum Suppression, which selects the best bounding boxes by keeping those with the highest confidence score and removing overlap or redundancy.
 - Compared to models that break the image down into more granular, pixel-level segmentation, YOLO models’ single-pass approach can struggle with smaller objects or complex scenery, however, should these limitations be considered when creating the training dataset, these issues can be countered through methods such as the addition of negative examples or data augmentation as described previously.
+- The goal of this model is to detect marginalia present in the NLS chapbooks dataset in order gain a sense of how chapbooks were used by those who interacted with them. It is unlikely that the model will achieve exceptionally high performance due to the small amount of training data, however with YOLOv7’s efficient learning capabilities it is likely that the model will achieve a standard of performance that will be acceptable to garner the “bird’s eye view” of the chapbooks desired for this experiment.
 Across what organizations or institutions did this training, finetuning, and/or deployment take place? (Mitchell et al., 2019)
-What funding was utilized? (Gebru et al., 2020)</p>
-<p>Training/finetuning:</p>
-<p>Was the model trained from scratch?
+What funding was utilized? (Gebru et al., 2020)
+- The training was performed by myself, a graduate student at Carleton University, and utilized my own funds which are a product of awards and grants from both external and internal sources at Carleton.</td>
+</tr>
+<tr class="odd">
+<td align="left">Training/finetuning:
+- My dataset is small, so rather than training a model from scratch which would likely yield poor results due to this limitation, I chose to use transfer learning with one of YOLOv7’s pretrained models. Transfer learning is a machine learning technique where a model that has been trained on one task is repurposed or “finetuned” for a different but related task. Instead of starting from scratch, the knowledge gained from solving one problem is transferred to help solve a different problem; this not only saves time and resources since the model is not being built from the ground up, it also builds upon what the model has already learned about recognizing characteristics such as shapes and patterns, making it more efficient and effective at expanding this [palette].
+{Was the model trained from scratch?
 If so, what data was used to train the model? (Mitchell et al., 2019)
 If not, was a pre-trained model utilized? Where can more information on the pre-trained model be found? (Mitchell et al., 2019)
 Was the pre-trained model finetuned? If so, what data was utilized for finetuning?
-If training or finetuning was performed, what computational resources were utilized?</p>
-<p>Evaluation:</p>
-<p>How was the model’s performance evaluated? (Mitchell et al., 2019)
-What data was used for evaluation? (M. Arnold, Bellamy, et al. (2019); Mitchell et al., 2019)
-If the model involves data pertaining to people, has the model been audited for fairness and bias using tools such as FairLearn? (M. Arnold, Bellamy, et al. (2019); Bird et al., 2020; Diakapoulos et al., n.d.; Jakeway et al., 2020; Madaio et al. (2020); Reisman et al., 2018)
-Have any tools been utilized to generate explanations for predictions (i.e., LIME Ribeiro et al. (2016), SHAP Lundberg and Lee (2017), TCAV (Kim et al., 2018)) and modify the model in response? (M. Arnold, Bellamy, et al. (2019); Cordell, 2020; Diakapoulos et al., n.d.; Padilla, 2020; Ribeiro et al., 2020)</p>
-<p>Deployment:</p>
-<p>How was the model deployed? Was it used to make a single pass over the cultural heritage dataset in question, or will it be continuously deployed?
+If training or finetuning was performed, what computational resources were utilized?}
+- Under the guidance of the YOLOv7 paper, while also accounting for the techincal parameters of my dataset and hardware being used, I chose the YOLOv7-E6 pretrained model to build off of. The YOLOv7-E6 model is designed for larger input sizes, that is to say, higher resolution images, which helps in capturing smaller details in an image, as well as for use with cloud GPUs.<span class="citation"><a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a></span> Cloud GPUs are remote graphics processing units that can be rented or accessed on-demand through cloud computing services for various computational tasks, particularly those involving machine learning workloads since machine learning makes use of the parallel processing capabilities GPUs possess which allow for multiple calculations to be done simultaneously, making complex computation faster and more efficient. In general, cloud GPUs are used because they allow for the use of a more powerful GPU than one typically has on hand, however they can also be [a more environmentally conscious choice]; cloud computing allows for resource sharing among multiple users which reduces the overall energy consumption compared to individuals running their own hardware. To train my model, I chose to use an NVIDIA RTX A6000 from provider Vast.ai, a market-based cloud computing platform which allows all compute providers [large and small] to easily share their devices’ spare capacity, due to the high amount of virtual memory which is necessary when training with a higher image resolution, but also because it was available from a Swedish data centre; nearly 75% of electricity production in Sweden comes from renewable, green energy sources, meaning that using a GPU located in Sweden will likely produce less carbon dioxide emissions compared to a GPU present elsewhere.<span class="citation"><a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a></span></td>
+</tr>
+<tr class="even">
+<td align="left">Evaluation:</td>
+</tr>
+<tr class="odd">
+<td align="left">How was the model’s performance evaluated? (Mitchell et al., 2019)
+- The key metrics produced upon testing a YOLOv7 model to evaluate its performance are precision, recall, and mean average precision (mAP). Precision is the ratio between actual positive detections and all positive detections; in the context of this model, that would be the measure of marginalia detected on the page out of all the marginalia actually present. Recall indicates how well a model correctly detects [] broadly; thus, for all the marginalia present, recall tells us how many were correctly detected. The mAP compares the bounding box that was drawn by the annotator, the ground-truth bounding box, to the bounding box detected by the model and returns a score; this score determines if an object has been successfully detected or not. YOLOv7 evaluates the model using mAP@.5 specifically; the appended .5 indicates the Intersection-over-Union (IoU) threshold, which measures the minimum overlap between the model’s predicted boundary and the ground truth in order for the detection to be considered correct. After training the model for 150 epochs, a single epoch being one pass through the entire training dataset during the training process, when [tested] on the test set of pages the model outputted a precision score of 77.6%, a recall score of 79.5%, and a mAP@.5 of 77.1%. So, when the model predicts marginalia it is generally correct, and the model is able to find and capture a substantial portion of the actual marginalia. Considering the small size of the training dataset and the goals of this project as a whole, these results are [acceptable enough] that the model should provide reasonably accurate detections of marginalia when applied to the NLS chapbook dataset.</td>
+</tr>
+<tr class="even">
+<td align="left">- A low precision and high recall implies that most of the ground-truth objects have been detected, but the majority of the predictions that the model make is incorrect.
+- When a model has high recall but low precision, then the model classifies most of the positive samples correctly but it has many false positives(i.e. classifies many Negative samples as Positive).</td>
+</tr>
+<tr class="odd">
+<td align="left">What data was used for evaluation? (M. Arnold, Bellamy, et al. (2019); Mitchell et al., 2019)
+- The <code>val</code> set was used for evaluating the model during the process of training, and the <code>test</code> set was used for evaluating the model after it completed training.</td>
+</tr>
+<tr class="even">
+<td align="left">If the model involves data pertaining to people, has the model been audited for fairness and bias using tools such as FairLearn? (M. Arnold, Bellamy, et al. (2019); Bird et al., 2020; Diakapoulos et al., n.d.; Jakeway et al., 2020; Madaio et al. (2020); Reisman et al., 2018)
+- N/A
+Have any tools been utilized to generate explanations for predictions (i.e., LIME Ribeiro et al. (2016), SHAP Lundberg and Lee (2017), TCAV (Kim et al., 2018)) and modify the model in response? (M. Arnold, Bellamy, et al. (2019); Cordell, 2020; Diakapoulos et al., n.d.; Padilla, 2020; Ribeiro et al., 2020)
+- N/A</td>
+</tr>
+<tr class="odd">
+<td align="left">Deployment:</td>
+</tr>
+<tr class="even">
+<td align="left">How was the model deployed? Was it used to make a single pass over the cultural heritage dataset in question, or will it be continuously deployed?
+- This model was primarily an experiment to test the output of my application, thus only intended to make a single pass over the cultural heritage dataset, however the model is available to be used by or even enhanced by others through [].
 What computational resources were utilized for deployment?
-Are the metadata generated by the machine learning model (embeddings, classifications, etc.) available as project deliverables?</p>
-<p>Release:</p>
-<p>Has the resulting model been made available for download? (if no, the following questions can be skipped)
-What license has been provided? (Mitchell et al., 2019)
-Who are the primary intended users, and what are the intended use cases? (Mitchell et al., 2019)
+- N/A
+Are the metadata generated by the machine learning model (embeddings, classifications, etc.) available as project deliverables?
+- Yes, in the Github repository.</td>
+</tr>
+<tr class="odd">
+<td align="left">Release:</td>
+</tr>
+<tr class="even">
+<td align="left">Has the resulting model been made available for download? (if no, the following questions can be skipped)
+- Yes, [].
+What license has been provided? (Mitchell et al., 2019)</td>
+</tr>
+</tbody>
+</table>
+<p>Who are the primary intended users, and what are the intended use cases? (Mitchell et al., 2019)
+- Researchers who would like to reproduce my results, and/or improve upon them.
 Does this model have applicability outside of cultural heritage collections?
-What are ways that this model could be misused, either intentionally or unintentionally? (Madaio et al., 2020; Mitchell et al., 2019)</p>
+- N/A
+What are ways that this model could be misused, either intentionally or unintentionally? (Madaio et al., 2020; Mitchell et al., 2019)
+- If someone did not read this work or [the repository which contains the model] for context, they may assume this model is more capable than it is and apply it in a context which it is inappropriate for, such as to enhance an archival search engine. Should a model like this be used in an institutional setting, higher performance metrics are necessary in order to minimize the risk of false positives or missed objects which would ultimately impair a user’s ability to navigate the model’s output.</p>
 <p>Environmental impact:</p>
-<p>What were the carbon emissions produced by training, finetuning, and/or deploying this model? (Cordell, 2020; Lacoste et al., 2019; Strubell et al., 2019)
-How does the environmental impact of this model compare to that of other components of the project, such as a collection’s digitization or stakeholders’ flights to relevant conferences?</p>
+<p>{What were the carbon emissions produced by training, finetuning, and/or deploying this model? (Cordell, 2020; Lacoste et al., 2019; Strubell et al., 2019) +
+How does the environmental impact of this model compare to that of other components of the project, such as a collection’s digitization or stakeholders’ flights to relevant conferences?}
+- Undoubtly the most resource intensive component of this project was training the model. Although I did not track the carbon emissions of the model as it trained, I utilized the Machine Learning CO2 Impact calculator, which uses the formula of power consumption x time x carbon produced based on the local power grid to estimate the carbon emissions of my training.<span class="citation"><a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a></span> Since Vast.ai follows a market place shared compute model, I used the Stockholm-based Amazon Web Services datacenter to [stand in for the Swedish datacenter which I rented the RTX A6000 used for training from]. Approximately 15 hours of computation was performed using this GPU, which has a TDP of 300W, between initial attempt at transfer learning and a following attempt after updating hyperparameters for better performance. Region eu-north-1 has a carbon efficiency of 0.05 kgCO<span class="math inline">\(_2\)</span>eq/kWh thus the total emissions are estimated to be 0.23 kgCO<span class="math inline">\(_2\)</span>eq, which is the equivalent of around 1km driven in a car with an internal combustion engine.</p>
 <p>Organizational considerations
 Stakeholders:</p>
 <p>What stakeholder groups are involved in this project? (Cordell, 2020)
@@ -337,54 +602,80 @@ What is each project member’s familiarity with cultural heritage collections a
 Has the project notified and sought input from all potentially relevant stakeholder groups, such as those included within the cultural heritage dataset itself? (Madaio et al., 2020; Reisman et al., 2018)
 Do groups affected by the project, such as individuals and communities directly represented within the cultural heritage dataset, have an avenue for contacting project staff and seeking recourse? If so, whom should they contact? If not, why not? (Diakapoulos et al., n.d.; Mitchell et al., 2019; Reisman et al., 2018)</p>
 <p>Use of machine learning:</p>
-<p>Was it necessary to use machine learning for this project?
-If so, why?
-If not, why was machine learning still utilized?
-What are potential critiques of applying machine learning in this context?</p>
+<p>{Was it necessary to use machine learning for this project? +
+If so, why?}
+- The alternative to machine learning for this project would be [algorithmic] computer vision, using a series of image augmentations to identify areas of marginalia on a page. However, this approach would not lend well to generalization and be unable to consistently detect marginalia across a diverse dataset since it would not retain information discerned from the images analyzed prior.</p>
+<p>If not, why was machine learning still utilized?
+What are potential critiques of applying machine learning in this context?
+- Is it worth the negative impacts of training?</p>
 <p>Organizational context:</p>
 <p>Can this project be used to build data fluency within the organization or institution? (Padilla, 2020)
 Do there exist programs or paths for training staff affiliated with the project to develop machine learning skillsets? (Cordell, 2020; Padilla, 2020)
 Do there exist programs or paths for training staff affiliated with the project to develop fluency with cultural heritage collections?</p>
 <p>Project deployment and launch:</p>
 <p>Who is the target audience of this project? (Madaio et al., 2020)
+- Academics, researchers, those interested in the intersection of cultural heritage institutions and machine learning
 How does the target audience align with the audiences that the institution or organization is hoping to engage?
+- N/A
 If the target audience of the project is the public, does it make an attempt to educate the public regarding the machine learning approaches employed?
-Did the project launch reach the intended audience?<em>
-Has the project received feedback from stakeholders, including the audience? If so, what feedback has been received?</em>
-Has the launch of the project resulted in any changes to the project?*</p>
+- Yes, this writing will be clearly affiliated with the technical output shared, and I have attempted to write the technical components this article with an individual who is unfamiliar with computational concepts and methods in mind.</p>
+<p>Did the project launch reach the intended audience?
+Has the project received feedback from stakeholders, including the audience? If so, what feedback has been received?*
+Has the launch of the project resulted in any changes to the project?</p>
 <p>(* = to be completed post-launch)</p>
 <p>Copyright, transparency, documentation, maintenance, and privacy
 Copyright:</p>
 <p>Building on question 1.1.g, does copyright impact the dataset, model, code, or deliverables for the project? (Cordell, 2020; Gebru et al., 2020; Jakeway et al., 2020; Mitchell et al., 2019; Padilla, 2018)
+- No, all component of this project are free to use for the purpose of research.
 If they are made available, what licenses have been chosen?
-If they are proprietary, how does this impact re-use?
-Transparency and re-use:</p>
+If they are proprietary, how does this impact re-use?</p>
+<p>Transparency and re-use:</p>
 <p>Can the project be audited by outsiders? If so, is there funding available to support outside audits? (Mitchell et al., 2019; Reisman et al., 2018)
 Is the code created for the project extensible for other cultural heritage researchers? (Padilla, 2020)
-If so, does the project provide any tutorials or toolkits for re-use?</p>
+- All code used in this project is available for others to freely inspect and use. The webscrapers may be of interest to those who want to collect data from the cultural heritage institutions I referenced, or even as examples of how to scrape similar interfaces. The notebook for training and testing the YOLOv7 model using transfer learning and can be repurposed by others to do the same with their own datasets.
+If so, does the project provide any tutorials or toolkits for re-use?
+- All code is commented and there is further context for each project element provided in the README of the case study’s repository.</p>
 <p>Documentation:</p>
 <p>Does the project have documentation? (Katell et al., 2019)
+- Not formal documentation, however there are notes about use as well as this paper.
 If so, is the documentation interpretable by the project’s audience?
-Is the project reproducible to an outside researcher, given the documentation available?</p>
+- Yes
+Is the project reproducible to an outside researcher, given the documentation available?
+- Yes</p>
 <p>Privacy:</p>
 <p>If the project is hosted online, are data on visitors collected? If so, what kinds of user data are collected? (Cordell, 2020)
-Is visitor consent gained before gathering online data? (Cordell, 2020)</p>
+- I do not collect any data about visitors, however GitHub, where repositories related to this project, undoubtly do. From the GitHub Privacy Statement [<a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" class="uri">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>]:
+&gt; GitHub collects information directly from you for your registration, payment, transactions, and user profile. We also automatically collect from you your usage information, cookies, and device information, subject, where necessary, to your consent. GitHub may also collect personal data from third parties.
+Is visitor consent gained before gathering online data? (Cordell, 2020)
+- Yes</p>
 <p>Maintenance:</p>
-<p>Will the project and code be maintained? (Gebru et al., 2020)
-If so, how frequently, and who will be responsible for maintaining it?</p>
+<p>{Will the project and code be maintained? (Gebru et al., 2020) +
+If so, how frequently, and who will be responsible for maintaining it?}
+- The project will be monitored so that should anyone need help with anything related to the project, they may raise an issue on GitHub and will receive a reply. I may develop some aspects of the project further, although this will be done in a repository separate from my MRE, however should this be the case I will update the MRE repository README with a clear link to any further developments.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="61">
-<li id="fn61"><p><a href="bibliography.html#ref-lee_collections_2023" role="doc-biblioref">Benjamin Charles Germain Lee, <span>“The <span>‘<span>Collections</span> as <span>ML</span> <span>Data</span>’</span> Checklist for Machine Learning and Cultural Heritage,”</span> <em>Journal of the Association for Information Science and Technology</em> n/a, no. n/a (May 2023), <a href="https://doi.org/10.1002/asi.24765" role="doc-biblioref">https://doi.org/10.1002/asi.24765</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref61" class="footnote-back">↩︎</a></p></li>
-<li id="fn62"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Philip Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>: <span>Wider</span> <span>Applications</span> of the <span>AoR</span> <span>Schema</span> <span></span> <span>Archaeology</span> of <span>Reading</span>,”</span> <em>Archaeology of Reading <span></span></em>, September 2018, <a href="https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/" role="doc-biblioref">https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref62" class="footnote-back">↩︎</a></p></li>
-<li id="fn63"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref63" class="footnote-back">↩︎</a></p></li>
-<li id="fn64"><p><a href="bibliography.html#ref-cordell_q_2017" role="doc-biblioref">Cordell, <span>“"<span>Q</span> i-Jtb the <span>Raven</span>"”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref64" class="footnote-back">↩︎</a></p></li>
-<li id="fn65"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref65" class="footnote-back">↩︎</a></p></li>
-<li id="fn66"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref66" class="footnote-back">↩︎</a></p></li>
-<li id="fn67"><p><a href="bibliography.html#ref-wang_yolov7" role="doc-biblioref">Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao, <span>“<span>YOLOv7</span>: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors,”</span> <em>arXiv Preprint arXiv:2207.02696</em>, 2022, <a href="https://doi.org/10.48550/arXiv.2207.02696" role="doc-biblioref">https://doi.org/10.48550/arXiv.2207.02696</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<li id="fn61"><p><a href="bibliography.html#ref-neudecker_ch_2022" role="doc-biblioref">Clemens Neudecker, <span>“Cultural Heritage as Data: Digital Curation and Artificial Intelligence in Libraries,”</span> in <em>Proceedings of the Third Conference on Digital Curation Technologies (Qurator 2022), Berlin, Germany, Sept. 19th-23rd, 2022</em>, ed. Adrian Paschke et al., vol. 3234, <span>CEUR</span> Workshop Proceedings (CEUR-WS.org, 2022), 3, <a href="https://ceur-ws.org/Vol-3234/paper2.pdf" role="doc-biblioref">https://ceur-ws.org/Vol-3234/paper2.pdf</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref61" class="footnote-back">↩︎</a></p></li>
+<li id="fn62"><p><a href="bibliography.html#ref-neudecker_ch_2022" role="doc-biblioref">Neudecker, <span>“Cultural Heritage as Data,”</span> 3</a>.<a href="case-study-finding-early-modern-marginalia.html#fnref62" class="footnote-back">↩︎</a></p></li>
+<li id="fn63"><p><a href="bibliography.html#ref-yale_state_2015" role="doc-biblioref">Elizabeth Yale, <span>“The History of Archives: The State of the Discipline,”</span> <em>Book History</em> 18 (2015): 332, <a href="https://doi.org/10.1353/bh.2015.0007" role="doc-biblioref">https://doi.org/10.1353/bh.2015.0007</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref63" class="footnote-back">↩︎</a></p></li>
+<li id="fn64"><p><a href="bibliography.html#ref-bonde_thylstrup_uncertain_2021" role="doc-biblioref">Nanna Bonde Thylstrup et al., eds., <em>Uncertain <span>Archives</span>: <span>Critical</span> <span>Keywords</span> for <span>Big</span> <span>Data</span></em>, 2021, 4, <a href="https://doi.org/10.7551/mitpress/12236.001.0001" role="doc-biblioref">https://doi.org/10.7551/mitpress/12236.001.0001</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref64" class="footnote-back">↩︎</a></p></li>
+<li id="fn65"><p><a href="bibliography.html#ref-lee_collections_2023" role="doc-biblioref">Benjamin Charles Germain Lee, <span>“The <span>‘<span>Collections</span> as <span>ML</span> <span>Data</span>’</span> Checklist for Machine Learning and Cultural Heritage,”</span> <em>Journal of the Association for Information Science and Technology</em> n/a, no. n/a (May 2023): 2, <a href="https://doi.org/10.1002/asi.24765" role="doc-biblioref">https://doi.org/10.1002/asi.24765</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref65" class="footnote-back">↩︎</a></p></li>
+<li id="fn66"><p><a href="bibliography.html#ref-bonde_thylstrup_uncertain_2021" role="doc-biblioref">Bonde Thylstrup et al., <em>Uncertain <span>Archives</span></em>, 75</a>.<a href="case-study-finding-early-modern-marginalia.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<li id="fn67"><p><a href="bibliography.html#ref-lee_collections_2023" role="doc-biblioref">Lee, <span>“The <span>‘<span>Collections</span> as <span>ML</span> <span>Data</span>’</span> Checklist for Machine Learning and Cultural Heritage”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<li id="fn68"><p><a href="bibliography.html#ref-lee_collections_2023" role="doc-biblioref">Lee, <span>“The <span>‘<span>Collections</span> as <span>ML</span> <span>Data</span>’</span> Checklist for Machine Learning and Cultural Heritage,”</span> 2</a>.<a href="case-study-finding-early-modern-marginalia.html#fnref68" class="footnote-back">↩︎</a></p></li>
+<li id="fn69"><p><a href="bibliography.html#ref-lee_collections_2023" role="doc-biblioref">Lee, <span>“The <span>‘<span>Collections</span> as <span>ML</span> <span>Data</span>’</span> Checklist for Machine Learning and Cultural Heritage”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref69" class="footnote-back">↩︎</a></p></li>
+<li id="fn70"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Philip Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>: <span>Wider</span> <span>Applications</span> of the <span>AoR</span> <span>Schema</span> <span></span> <span>Archaeology</span> of <span>Reading</span>,”</span> <em>Archaeology of Reading <span></span></em>, September 2018, <a href="https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/" role="doc-biblioref">https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref70" class="footnote-back">↩︎</a></p></li>
+<li id="fn71"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref71" class="footnote-back">↩︎</a></p></li>
+<li id="fn72"><p><a href="bibliography.html#ref-cordell_q_2017" role="doc-biblioref">Cordell, <span>“"<span>Q</span> i-Jtb the <span>Raven</span>"”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref72" class="footnote-back">↩︎</a></p></li>
+<li id="fn73"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn74"><p><a href="bibliography.html#ref-palmer_annotated_2018" role="doc-biblioref">Palmer, <span>“Annotated <span>Books</span> at <span>UCLA</span>”</span></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<li id="fn75"><p><a href="bibliography.html#ref-wang_yolov7" role="doc-biblioref">Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao, <span>“<span>YOLOv7</span>: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors,”</span> <em>arXiv Preprint arXiv:2207.02696</em>, 2022, <a href="https://doi.org/10.48550/arXiv.2207.02696" role="doc-biblioref">https://doi.org/10.48550/arXiv.2207.02696</a></a>.<a href="case-study-finding-early-modern-marginalia.html#fnref75" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p><a href="bibliography.html#ref-wang_yolov7" role="doc-biblioref">Wang, Bochkovskiy, and Liao, <span>“<span>YOLOv7</span>,”</span> 6</a>.<a href="case-study-finding-early-modern-marginalia.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p><a href="#ref-https://sweden.se/climate/sustainability/energy-use-in-sweden" role="doc-biblioref"><strong>Https://sweden.se/climate/sustainability/energy-use-in-sweden?</strong></a><a href="case-study-finding-early-modern-marginalia.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p><a href="bibliography.html#ref-lacoste_quantifying_2019" role="doc-biblioref">Alexandre Lacoste et al., <span>“Quantifying the Carbon Emissions of Machine Learning,”</span> <em>arXiv Preprint arXiv:1910.09700</em>, 2019</a>.<a href="case-study-finding-early-modern-marginalia.html#fnref78" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -447,6 +738,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
