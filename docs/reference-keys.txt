@@ -15,6 +15,10 @@ interface-and-tooling
 annotation-and-metadata
 case-study-finding-early-modern-marginalia
 the-cultural-heritage-collection-as-data
+nls-chapbooks-in-the-data-foundry
+the-archaeology-of-reading
+early-modern-annotated-books
+annotation-process
 the-machine-learning-model
 results
 organizational-considerations
