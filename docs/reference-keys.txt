@@ -18,7 +18,7 @@ the-cultural-heritage-collection-as-data
 nls-chapbooks-in-the-data-foundry
 the-archaeology-of-reading
 early-modern-annotated-books
-annotation-process
+dataset-provenance
 the-machine-learning-model
 results
 organizational-considerations
