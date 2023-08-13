@@ -19,8 +19,7 @@ nls-chapbooks-in-the-data-foundry
 the-archaeology-of-reading
 early-modern-annotated-books
 dataset-provenance
+annotation-process-and-dataset-formation
 the-machine-learning-model
 results
-organizational-considerations
-copyright-transparency-documentation-maintenance-and-privacy
 conclusions
