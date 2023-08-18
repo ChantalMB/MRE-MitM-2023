@@ -1,4 +1,6 @@
 fig:unnamed-chunk-1
+fig:unnamed-chunk-5
+fig:unnamed-chunk-6
 welcome-to-my-mre
 abstract
 acknowledgements
