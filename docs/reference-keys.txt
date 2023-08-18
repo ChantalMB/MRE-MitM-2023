@@ -1,7 +1,8 @@
 fig:unnamed-chunk-1
 welcome-to-my-mre
-intro
+abstract
 acknowledgements
+intro
 marginalia-in-the-archive
 the-historiography-of-marginalia
 presence-in-physical-and-digital-archives
@@ -22,4 +23,6 @@ dataset-provenance
 annotation-process-and-dataset-formation
 the-machine-learning-model
 results
+false-positives
+dicussion
 conclusions

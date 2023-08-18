@@ -1,15 +1,13 @@
 # Conclusions
 
--The historiographical impact that using this tool might have in the context of book history and more generally, as the study of history becomes increasingly digital and joins the conversations about transparency and accessible data within the humanities.
+- The historiographical impact that using this tool might have in the context of book history and more generally, as the study of history becomes increasingly digital and joins the conversations about transparency and accessible data within the humanities.
+
+- If the institution is unable to distribute their data in multiple formats, there should be clear documentation on their format of choice, how it is used, and ideally information or links to technical resources that allow transformation into other formats in a straightforward and reproducible way.[@neudecker_ch_2022, 3] To harness the full potential of their content, cultural heritage institutions cannot only rely on the ability of the researchers to access their data through [unmonitored] and time consuming means such as webscraping; instead, they must invest in more suitable ways to share their data, and in digital curation with a considerably broader scope of use, while also [integrating] their responsibilities to the content of their data regarding any ethical issues and inequities that may be present.
 
 Applications of Technical work
 - Case study
   - Enrich metadata --> discover new readers and their habits through their marks
     - Pair with classifier to automate identification if collections substantial enough?
   - Detection of marginalia in digital collections like EEBO
-  - HTR --> https://arxiv.org/abs/2303.05929
-    - Ultimately was not able to reproduce their results/use their model --> was unable to get their scripts to work with my own data
-  - General detection for UCLA Library --> https://github.com/collectionslab/Omniscribe
-    - Open source project, could have used their data to augment mine and improve final results, however...[critiques of their method aka machine learning focus over humanities approach, also, who validated the volunteers' annotations? Was there any framework established about what is vs what is not marginalia?]
   - Method could be applied to even more obscure ___ in the history of the Book, such as object marks as discussed by Adam Smyth in his chapter, *Object Traces in Early Modern Books*, although a dataset for training this would be more difficult to create.
   - With enough advancement and perhaps integration with something like HTR, an object detection model could potentially be created that detects the genre of marginalia as outlined by the researcher.

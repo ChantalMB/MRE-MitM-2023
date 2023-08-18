@@ -1,0 +1,10 @@
+Category | Count | Definition
+Font | 551 | Rough or italicized section of printed text which results in model mistaking irregularities for handwriting
+Illustrations | 1169 | As implied
+Ink Bleeding | 767 | Ink bleeding through pages forming what appears to be new marginalia
+Ink spills | 33 | Ink splatters on page
+Hand traces | 16 | Thumb prints
+Mistaken reading systems | 686 | Symbols within printed text near places which annotators have used symbols in training data
+Printed tables | 18 | In training data, tables are largely hand drawn, so model mistook printed tables for handdrawn ones
+Paper quality |  266 | Poor paper quality with visible fibers causing shadows on page which model mistake for marginalia
+Print flaws | 2815 | Poor printing quality resulting in random ink marks on page which model mistake for marginalia

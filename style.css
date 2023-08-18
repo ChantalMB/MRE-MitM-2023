@@ -20,6 +20,10 @@ p {
   text-indent: 3em;
 }
 
+blockquote > p {
+  text-indent: 0em;
+}
+
 p.caption {
   color: #777;
   margin-top: 10px;

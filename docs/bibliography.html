@@ -23,13 +23,13 @@
 <meta name="author" content="Chantal M Brousseau" />
 
 
-<meta name="date" content="2023-08-13" />
+<meta name="date" content="2023-08-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="conclusions.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 
@@ -98,11 +105,12 @@ div.csl-indent {
 <li><a href="./">Metadata in the Margins</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to my MRE</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to my MRE</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#acknowledgements"><i class="fa fa-check"></i><b>2.1</b> Acknowledgements</a></li>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i><b>1.1</b> Abstract</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html"><i class="fa fa-check"></i><b>3</b> Marginalia in the Archive</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#the-historiography-of-marginalia"><i class="fa fa-check"></i><b>3.1</b> The Historiography of Marginalia</a></li>
@@ -133,7 +141,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#annotation-process-and-dataset-formation"><i class="fa fa-check"></i><b>5.2</b> Annotation Process and Dataset Formation</a></li>
 <li class="chapter" data-level="5.3" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-machine-learning-model"><i class="fa fa-check"></i><b>5.3</b> The Machine Learning Model</a></li>
-<li class="chapter" data-level="5.4" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#results"><i class="fa fa-check"></i><b>5.4</b> Results</a></li>
+<li class="chapter" data-level="5.4" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#results"><i class="fa fa-check"></i><b>5.4</b> Results</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#false-positives"><i class="fa fa-check"></i><b>5.4.1</b> False Positives</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#dicussion"><i class="fa fa-check"></i><b>5.5</b> Dicussion</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -164,17 +176,23 @@ div.csl-indent {
 <div id="ref-acheson_early_2019" class="csl-entry">
 Acheson, Katherine, ed. <em>Early <span>Modern</span> <span>English</span> <span>Marginalia</span></em>. New York: Routledge, 2019. <a href="https://doi.org/10.4324/9781315228815">https://doi.org/10.4324/9781315228815</a>.
 </div>
-<div id="ref-dijstelberge_annotated" class="csl-entry">
-<span>“Annotated <span>Books</span> <span>Online</span>: <span>A</span> Digital Archive of Early Modern Annotated Books.”</span> Accessed May 30, 2023. <a href="https://www.annotatedbooksonline.com/">https://www.annotatedbooksonline.com/</a>.
-</div>
 <div id="ref-aoc_2014" class="csl-entry">
 <span>“Archaeology of <span>Reading</span>,”</span> September 2014. <a href="https://archaeologyofreading.org/">https://archaeologyofreading.org/</a>.
+</div>
+<div id="ref-baio_exploring_2022" class="csl-entry">
+Baio, Andy. <span>“Exploring 12 <span>Million</span> of the 2.3 <span>Billion</span> <span>Images</span> <span>Used</span> to <span>Train</span> <span>Stable</span> <span>Diffusion</span>’s <span>Image</span> <span>Generator</span>.”</span> <em>Waxy.org</em>, August 2022. <a href="https://waxy.org/2022/08/exploring-12-million-of-the-images-used-to-train-stable-diffusions-image-generator/">https://waxy.org/2022/08/exploring-12-million-of-the-images-used-to-train-stable-diffusions-image-generator/</a>.
+</div>
+<div id="ref-bender_dangers_2021" class="csl-entry">
+Bender, Emily M., Timnit Gebru, Angelina McMillan-Major, and Shmargaret Shmitchell. <span>“On the <span>Dangers</span> of <span>Stochastic</span> <span>Parrots</span>: <span>Can</span> <span>Language</span> <span>Models</span> <span>Be</span> <span>Too</span> <span>Big</span>? 🦜.”</span> In <em>Proceedings of the 2021 <span>ACM</span> <span>Conference</span> on <span>Fairness</span>, <span>Accountability</span>, and <span>Transparency</span></em>, 610–23. Virtual Event Canada: ACM, 2021. <a href="https://doi.org/10.1145/3442188.3445922">https://doi.org/10.1145/3442188.3445922</a>.
 </div>
 <div id="ref-bonde_thylstrup_uncertain_2021" class="csl-entry">
 Bonde Thylstrup, Nanna, Daniela Agostinho, Annie Ring, Catherine D’Ignazio, and Kristin Veel, eds. <em>Uncertain <span>Archives</span>: <span>Critical</span> <span>Keywords</span> for <span>Big</span> <span>Data</span></em>, 2021. <a href="https://doi.org/10.7551/mitpress/12236.001.0001">https://doi.org/10.7551/mitpress/12236.001.0001</a>.
 </div>
 <div id="ref-bh_reading_2005" class="csl-entry">
 Brayman Hackel, Heidi. <em>Reading <span>Material</span> in <span>Early</span> <span>Modern</span> <span>England</span>: <span>Print</span>, <span>Gender</span>, and <span>Literacy</span></em>. Cambridge, U.K.; New York: Cambridge University Press, 2005.
+</div>
+<div id="ref-brousseau_interrogating_2022" class="csl-entry">
+Brousseau, Chantal. <span>“Interrogating a <span>National</span> <span>Narrative</span> with <span>GPT</span>-2.”</span> <em>Programming Historian</em>, October 2022. https://doi.org/<a href="https://doi.org/10.46430/phen0104">https://doi.org/10.46430/phen0104</a>.
 </div>
 <div id="ref-chantalmb_issap_2022" class="csl-entry">
 ChantalMB. <span>“<span>ChantalMB</span>/Issap-Image-Annotator,”</span> February 2022. <a href="https://github.com/ChantalMB/issap-image-annotator">https://github.com/ChantalMB/issap-image-annotator</a>.
@@ -188,6 +206,9 @@ Crymble, Adam. <em>Technology and the <span>Historian</span>: <span>Transformati
 <div id="ref-dignazio_data_2020" class="csl-entry">
 D’Ignazio, Catherine, and Lauren F. Klein. <em>Data <span>Feminism</span></em>. Cambridge, MA: The MIT Press, 2020. <a href="https://doi.org/10.7551/mitpress/11805.001.0001">https://doi.org/10.7551/mitpress/11805.001.0001</a>.
 </div>
+<div id="ref-derrida_grammatology_1997" class="csl-entry">
+Derrida, Jacques. <em>Of <span>Grammatology</span></em>. Translated by Gayatri Chakravorty Spivak. Corrected ed. Baltimore: Johns Hopkins University Press, 1997.
+</div>
 <div id="ref-dutta_via_2019" class="csl-entry">
 Dutta, Abhishek, and Andrew Zisserman. <span>“The <span>VIA</span> <span>Annotation</span> <span>Software</span> for <span>Images</span>, <span>Audio</span> and <span>Video</span>.”</span> In <em>Proceedings of the 27th <span>ACM</span> <span>International</span> <span>Conference</span> on <span>Multimedia</span></em>, 2276–79. <span>MM</span> ’19. New York, NY, USA: Association for Computing Machinery, 2019. <a href="https://doi.org/10.1145/3343031.3350535">https://doi.org/10.1145/3343031.3350535</a>.
 </div>
@@ -196,6 +217,9 @@ Fleming, Juliet. <em>Cultural <span>Graphology</span>: <span>Writing</span> <spa
 </div>
 <div id="ref-gebru_datasheets_2021" class="csl-entry">
 Gebru, Timnit, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III, and Kate Crawford. <span>“Datasheets for <span>Datasets</span>,”</span> December 2021. <a href="https://doi.org/10.48550/arXiv.1803.09010">https://doi.org/10.48550/arXiv.1803.09010</a>.
+</div>
+<div id="ref-getty" class="csl-entry">
+<span>“Getty <span>API</span> <span>Documentation</span>.”</span> <em>Getty</em>. Accessed August 18, 2023. <a href="https://data.getty.edu/museum/collection/docs/#attribution">https://data.getty.edu/museum/collection/docs/#attribution</a>.
 </div>
 <div id="ref-graham_recording_2022" class="csl-entry">
 Graham, Shawn, and Justin Walsh. <span>“Recording Archaeological Data from Space.”</span> <em>International Space Station Archaeological Project</em>, February 2022. <a href="https://issarchaeology.org/how-do-you-get-from-an-astronauts-photo-to-usable-archaeological-data/">https://issarchaeology.org/how-do-you-get-from-an-astronauts-photo-to-usable-archaeological-data/</a>.
@@ -214,6 +238,9 @@ Jo, Eun Seo, and Timnit Gebru. <span>“Lessons from Archives: Strategies for Co
 </div>
 <div id="ref-lacoste_quantifying_2019" class="csl-entry">
 Lacoste, Alexandre, Alexandra Luccioni, Victor Schmidt, and Thomas Dandres. <span>“Quantifying the Carbon Emissions of Machine Learning.”</span> <em>arXiv Preprint arXiv:1910.09700</em>, 2019.
+</div>
+<div id="ref-lauriston" class="csl-entry">
+<span>“Lauriston <span>Castle</span> <span>Collection</span>.”</span> Accessed August 16, 2023. <a href="https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598">https://digital.nls.uk/catalogues/special-and-named-printed-collections/?id=598</a>.
 </div>
 <div id="ref-lee_compounded_2021" class="csl-entry">
 Lee, Benjamin. <span>“Compounded <span>Mediation</span>: <span>A</span> <span>Data</span> <span>Archaeology</span> of the <span>Newspaper</span> <span>Navigator</span> <span>Dataset</span>.”</span> <em>Digital Humanities Quarterly</em> 015, no. 4 (December 2021). <a href="http://www.digitalhumanities.org/dhq/vol/15/4/000578/000578.html">http://www.digitalhumanities.org/dhq/vol/15/4/000578/000578.html</a>.
@@ -251,6 +278,9 @@ Padilla, Thomas. <span>“On a <span>Collections</span> as <span>Data</span> <sp
 <div id="ref-palmer_annotated_2018" class="csl-entry">
 Palmer, Philip. <span>“Annotated <span>Books</span> at <span>UCLA</span>: <span>Wider</span> <span>Applications</span> of the <span>AoR</span> <span>Schema</span> <span></span> <span>Archaeology</span> of <span>Reading</span>.”</span> <em>Archaeology of Reading <span></span></em>, September 2018. <a href="https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/">https://archaeologyofreading.org/annotated-books-at-ucla-wider-applications-of-the-aor-schema/</a>.
 </div>
+<div id="ref-schramowski_safe_2023" class="csl-entry">
+Schramowski, Patrick, Manuel Brack, Björn Deiseroth, and Kristian Kersting. <span>“Safe <span>Latent</span> <span>Diffusion</span>: <span>Mitigating</span> <span>Inappropriate</span> <span>Degeneration</span> in <span>Diffusion</span> <span>Models</span>.”</span> In <em>Proceedings of the 22nd <span>IEEE</span>/<span>CVF</span> <span>Conference</span> on <span>Computer</span> <span>Vision</span> and <span>Pattern</span> <span>Recognition</span> (<span>CVPR</span>)</em>. Vancouver, BC: arXiv, 2023. <a href="https://doi.org/10.48550/arXiv.2211.05105">https://doi.org/10.48550/arXiv.2211.05105</a>.
+</div>
 <div id="ref-chapbooks" class="csl-entry">
 Scotland, National Library of. <span>“Chapbooks Printed in <span>Scotland</span>.”</span> National Library of Scotland. Accessed May 30, 2023. <a href="https://doi.org/10.34812/VB2S-9G58">https://doi.org/10.34812/VB2S-9G58</a>.
 </div>
@@ -259,6 +289,9 @@ Scott-Warren, Jason. <span>“Reading <span>Graffiti</span> in the <span>Early</
 </div>
 <div id="ref-sherman_used_2008" class="csl-entry">
 Sherman, William H. <em>Used <span>Books</span>: <span>Marking</span> <span>Readers</span> in <span>Renaissance</span> <span>England</span></em>. Philadelphia, PA: University of Pennsylvania Press, 2008. <a href="https://www.jstor.org/stable/j.ctt3fhgzw">https://www.jstor.org/stable/j.ctt3fhgzw</a>.
+</div>
+<div id="ref-vam-2021-collections-data" class="csl-entry">
+Victoria, and Albert Museum. <span>“Victoria and Albert Museum Collections Data,”</span> 2021. <a href="https://collections.vam.ac.uk/">https://collections.vam.ac.uk/</a>.
 </div>
 <div id="ref-wang_yolov7" class="csl-entry">
 Wang, Chien-Yao, Alexey Bochkovskiy, and Hong-Yuan Mark Liao. <span>“<span>YOLOv7</span>: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors.”</span> <em>arXiv Preprint arXiv:2207.02696</em>, 2022. <a href="https://doi.org/10.48550/arXiv.2207.02696">https://doi.org/10.48550/arXiv.2207.02696</a>.
@@ -274,6 +307,20 @@ Ziegler, S. L. <span>“Open <span>Data</span> in <span>Cultural</span> <span>He
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

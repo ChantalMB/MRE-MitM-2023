@@ -8,7 +8,7 @@ documentclass: book
 bibliography: [MRE-2023.bib, packages.bib]
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-fullnote-bibliography-short-title-subsequent.csl
 link-citations: yes
-favicon: images/favicon.ico
+favicon: assets/images/favicon.ico
 github-repo: ChantalMB/MitM-MRE-2023
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 ---
@@ -21,6 +21,17 @@ This is placeholder text until I have something more smarter to put here.
 - The GitHub repository for the app: https://github.com/ChantalMB/MRE-RocketAnno
 - The GitHub repository for the case study: https://github.com/ChantalMB/MRE-Detecting-Marginalia
 
+## Abstract
+- The abstract should go here and it should not be more than 150 words. 
+- Notice that prefatory pages are small-case roman numerals in the top right corner, beginning with the Abstract as page ii (the title page is not numbered but page “i” is implied), and that the left hand margin is wider (1.5”) in order to allow for binding. 
+- The numbering switches to regular Arabic numerals on the first page of your introduction and starts re-numbering at that point and follows through to the very end. 
+- Your text should be in a standard 12-point font. 
+- The very first sentence of the abstract should make clear what elements are being assessed by the readers. For example, if it is just the essay, then the abstract begins, "This research essay....." If the project includes a documentary film and reflexive essay, then the abstract begins, "This documentary film and essay....."
+
+## Acknowledgements
+- Supervisor
+- Svelte community and Discord
+- Partner, for playing Tears of the Kingdom while I work so I don't get distracted
 
 
 
