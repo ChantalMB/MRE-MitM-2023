@@ -1,7 +1,5 @@
 # Marginalia in the Archive
 
-DISCUSS: Significant works addressing marginalia produced in the early modern period, and the presence of marginalia in both the physical and digital archive (ie materiality)
-
 ## The Historiography of Marginalia 
 
 Marginalia have been recognized as significant by scholars since as early as the 19th century, then used as a means to construct the history of earlier scholars in more detail and to expand upon their published works. Particularly of note from this time was literary scholar George Charles Moore Smith’s work. In 1913 he published a book that aimed to "illustrate the life, character, and opinions" of early modern writer Gabriel Harvey using his "unpublished materials", citing Harvey’s vast array of marginalia in this process of extending existing knowledge.[@harvey_gabriel_1913] More current works tend to focus on the materiality of marginalia, using a combination of their content alongside their placement and material features of the book itself to analyze how early modern readers interacted with and used literature.[@acheson_early_2019, 3] 
@@ -20,12 +18,7 @@ Especially relevant to the discussion of marginalia is Fleming's conceptualizati
 
 > Remov[ing] proscribed or offensive material from religious texts and learning materials, to obviate the labour of copying in producing commonplace books and other compilations, to reformat texts in order to rationalize the material they contained, to provide room for marginal or other commentaries, to add other material to and thereby expand a given text, to organize their own researches, and to illustrate or embellish presentation and other manuscripts with motifs cut from printed sources.[@fleming_cultural_2016, 99]
 
-Thus establishing this form of readers' traces not as not just the organization of written information, but also as an act of writing. For Fleming, "the cut opens, gathers and sorts; it shapes the present and introduces the future" akin to how historians of reading posit marginalia is used, as seen in Jardine and Grafton's understanding of Harvey's political notes on a text of ancient history, or Sherman's notion of private and public connections within annotations. Annotation, like cutting, is not destructive, but rather a means to grow the work being interacted with. Through her exploration of cultural graphology, Fleming invites readers, and in particular, historians of reading and the book, to critically engage with the complexities of writing as a cultural practice. She highlights the significance of materiality, historical context, and philosophical underpinnings in understanding the role of writing in shaping and reflecting cultural and social dynamics.
-
-- Acheson oop
-The most recently published comprehensive text on marginalia is *Early Modern English Marginalia* edited by Katherine Acheson, a scholar of early modern literature and language, for the *Material Readings in Early Modern Culture* series.
-
-
+Thus establishing this form of readers' traces not as not just the organization of written information, but also as an act of writing. For Fleming, "the cut opens, gathers and sorts; it shapes the present and introduces the future" akin to how historians of reading posit marginalia is used, as seen in Jardine and Grafton's understanding of Harvey's political notes on a text of ancient history, or Sherman's notion of private and public connections within annotations. Annotation, like cutting, is not destructive, but rather a means to grow the work being interacted with. Through her exploration of cultural graphology, Fleming invites readers, and in particular, historians of reading and the book, to critically engage with the complexities of writing as a cultural practice. She highlights the significance of materiality, historical context, and philosophical underpinnings in understanding the role of writing in shaping and reflecting cultural and social dynamics
 
 ## Presence in Physical and Digital Archives
 
@@ -88,8 +81,6 @@ As of the year I am writing this, 2023, despite many technological advances in t
 
 
 ## On Object Marks and Machines
-
-(Note: I think this discussion is valuable and makes for a good concluding remark, but it does feel sort if random?)
 
 Acheson's book raises a number of historical, cultural, and theoretical questions about books and their readers, many of which could be explored further through greater access to more obscure, both literally and figuratively, research materials such as marginalia. Adam Smyth's contribution to *Early Modern English Marginalia* particularly emphasises this; in his chapter, he sought to identify current traits in recent works on the history of marginalia which bring to the surface a number of questions, paradoxes or gaps, through the analysis of object traces in early modern books.[@acheson_early_2019, 63] These traits-as-problems which Smyth uses to illustrate the value of attending to object traces can also be used to understand the value of integrating machine learning methods, particularly object detection, into the study of marginalia. 
 

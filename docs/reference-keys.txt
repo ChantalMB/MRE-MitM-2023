@@ -1,6 +1,10 @@
 fig:unnamed-chunk-1
+fig:unnamed-chunk-4
 fig:unnamed-chunk-5
 fig:unnamed-chunk-6
+fig:unnamed-chunk-8
+fig:unnamed-chunk-9
+fig:unnamed-chunk-10
 welcome-to-my-mre
 abstract
 acknowledgements
@@ -26,5 +30,9 @@ annotation-process-and-dataset-formation
 the-machine-learning-model
 results
 false-positives
+man-vs-machine
 dicussion
+related-work
 conclusions
+future-directions
+closing-thoughts

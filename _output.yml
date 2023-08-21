@@ -20,3 +20,6 @@ bookdown::pdf_book:
   keep_tex: yes
 bookdown::epub_book: default
 bookdown::bs4_book: default
+bookdown::word_document2: default
+bibliography: MRE-2023.bib
+csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-fullnote-bibliography-short-title-subsequent.csl
