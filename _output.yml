@@ -21,5 +21,6 @@ bookdown::pdf_book:
 bookdown::epub_book: default
 bookdown::bs4_book: default
 bookdown::word_document2: default
+bookdown::html_document2: default
 bibliography: MRE-2023.bib
 csl: https://raw.githubusercontent.com/citation-style-language/styles/master/chicago-fullnote-bibliography-short-title-subsequent.csl

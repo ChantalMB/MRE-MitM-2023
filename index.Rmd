@@ -16,23 +16,18 @@ always_allow_html: yes
 
 # Welcome to my MRE
 
-This is placeholder text until I have something more smarter to put here.
-
 - The GitHub repository for this site: https://github.com/ChantalMB/MRE-MitM-2023
 - The GitHub repository for the app: https://github.com/ChantalMB/MRE-RocketAnno
 - The GitHub repository for the case study: https://github.com/ChantalMB/MRE-Detecting-Marginalia
 
 ## Abstract
-- The abstract should go here and it should not be more than 150 words. 
-- Notice that prefatory pages are small-case roman numerals in the top right corner, beginning with the Abstract as page ii (the title page is not numbered but page “i” is implied), and that the left hand margin is wider (1.5”) in order to allow for binding. 
-- The numbering switches to regular Arabic numerals on the first page of your introduction and starts re-numbering at that point and follows through to the very end. 
-- Your text should be in a standard 12-point font. 
-- The very first sentence of the abstract should make clear what elements are being assessed by the readers. For example, if it is just the essay, then the abstract begins, "This research essay....." If the project includes a documentary film and reflexive essay, then the abstract begins, "This documentary film and essay....."
+
+In this research essay, along with its associated application and case study, I delve into the transformative impact of digitized cultural heritage collections on emerging research methodologies. I have identified key issues which digitized cultural heritage collections and by extension, institutions, face during this time of rapid technological development, specifically in the realm of machine learning. I address this through the development of an application to situate the data which machine learning models are built on, and further demonstrate the positive impact machine learning has the potential to make on the study of history when used consciously with active effort made towards ethical usage. My research ultimately showcases how machine learning, when applied mindfully and with a dedicated focus on ethical considerations, can bring about beneficial changes in the field of history research.
 
 ## Acknowledgements
-- Supervisor
-- Svelte community and Discord
-- Partner, for playing Tears of the Kingdom while I work so I don't get distracted
+I would first and foremostly like to express my sincere gratitude to my supervisor, Shawn Graham, for his invaluable guidance, unwavering support, and insightful feedback throughout the course of this research. His expertise and mentorship have been instrumental in shaping the direction and final product of this thesis, and I am truly grateful for the time and effort he dedicated to helping me succeed in my entire time at Carleton.
+I am also deeply appreciative of my family and friends, who provided me with the space, encouragement, and understanding I needed during this challenging process. Their consistent belief in me, coupled with the occasional insistence on taking breaks and garden-fresh vegetables, has been a source of strength and motivation, and I am fortunate to have such a remarkable support system.
+Finally, a special note of thanks goes to my cats, Peaches and Basil. Peaches, by sitting on me for extended periods of time, often served as a peculiar yet effective reminder to remain focused and committed to my work. Feral kitten Basil, who appeared in the midst of my MRE process on our back porch, was a forceful reminder of the balance between life and studies that I often needed to be reminded of. Their companionship during late-night writing sessions brought a sense of comfort and added a touch of warmth to the occasional solitude of research.
 
 
 
