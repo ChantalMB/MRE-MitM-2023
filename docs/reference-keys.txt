@@ -15,7 +15,7 @@ intro
 marginalia-in-the-archive
 the-historiography-of-marginalia
 presence-in-physical-and-digital-archives
-what-is-marginalia
+how-is-marginalia-defined
 physical-and-digital-presence
 on-object-marks-and-machines
 creation-of-an-application-to-capture-the-metadata-of-big-data
@@ -24,6 +24,7 @@ process
 interface-and-tooling
 annotation-and-metadata
 case-study-finding-early-modern-marginalia
+understanding-big-data
 the-cultural-heritage-collection-as-data
 nls-chapbooks-in-the-data-foundry
 the-archaeology-of-reading
@@ -34,8 +35,8 @@ the-machine-learning-model
 results
 false-positives
 man-vs-machine
-dicussion
-related-work
+discussion
 conclusions
 future-directions
 closing-thoughts
+appendix-a-the-full-collections-as-ml-data-checklist
