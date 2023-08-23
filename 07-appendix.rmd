@@ -1,0 +1,141 @@
+# Appendix A: The Full “Collections as ML Data” Checklist
+
+**The cultural heritage collection as data**
+
+Here, a distinction is drawn between the cultural heritage collection being studied and the training dataset being utilized for the machine learning model. For example, a project might utilize a pre-trained model to generate embeddings for a photo collection. In this section, we consider the cultural heritage collection itself; in the section "The Machine Learning Model," we consider the machine learning model\'s training data.
+
+1.  Dataset composition:
+    a.  Who or what is depicted in the dataset? (Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029))
+    b.  If the dataset depicts people, are any specific subgroups of people represented? Are any specific individuals personally identifiable? (Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029))
+    c.  If the dataset depicts people, are any individuals still living? Does this project comply with privacy laws in countries where it will be shared?
+    d.  What medium is the dataset? (image, video, text, web archive, etc.)
+    e.  How large is the dataset, both in cardinality and in disk storage?
+    f.  What metadata is available for the dataset items? (Holland et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0035))
+    g.  Does copyright impact this dataset? If so, how? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029); Jakeway et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0037); Padilla, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0057))
+    h.  Does this dataset pertain to a difficult history? If so, what extra precautions are being taken?
+
+2.  Collecting process and curation rationale (language borrowed from Bender and Friedman ([**2018**](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0007))):
+    a.  Who curated the cultural heritage collection from which this dataset is derived?
+    b.  What organization or institution was the collection created for?
+    c.  What funding was utilized (if known)?
+    d.  What collection process was utilized? (Bender & Friedman, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0007))
+    e.  When was the collection assembled? (i.e., when were the photographs taken or ethnographies recorded?)
+    f.  What instruments were utilized to create the collection? (i.e., a recording device, camera, etc.)
+    g.  If people are included, did individuals consent at the time of collection?
+    h.  What were the decision-making processes behind the collection\'s curation? (Bender & Friedman, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0007))
+    i.  What is unknown about the collection process and curation rationale?
+
+3.  Digitization pipeline (only applicable if the dataset is a digitized version of a physical collection):
+    a.  Who selected what was digitized?
+    b.  What organization or institution oversaw the digitization?
+    c.  What funding was utilized?
+    d.  What criteria were utilized for determining what was digitized? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015))
+    e.  What were the steps in the digitization pipeline? (For example, in the case of photos, what scanners were used to digitize the documents? In the case of documents, what OCR engines were utilized?)
+    f.  What metadata was algorithmically produced?
+
+4.  Data provenance:
+    a.  What is the provenance of the dataset, from collection through digitization? (Bender & Friedman, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0007); Diakapoulos et al., [n.d.](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0019); Holland et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0035))
+    b.  Is any part of the provenance unknown?
+
+5.  Crowd labor:
+    a.  Have volunteers or crowd workers added metadata to the dataset? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Jakeway et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0037); Padilla, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0057))
+    b.  If so, how were they recruited and compensated?
+    c.  If so, what metadata did they produce? (i.e., transcriptions, annotations, etc.)
+
+6.  Additional modification:
+    a.  Were any additional steps taken after collection curation and digitization in order to produce the dataset in question? (i.e., Were any items removed? Were any additional metadata added? etc.)
+
+**The machine learning model**
+
+*Note*: if multiple machine learning models were utilized in the project, this step should be completed for each model.
+
+1.  Overview:
+    a.  What model architecture has been utilized? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    b.  What is the task that the model is being deployed to perform?
+    c.  Who trained, finetuned, and/or deployed this model? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    d.  Across what organizations or institutions did this training, finetuning, and/or deployment take place? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    e.  What funding was utilized? (Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029))
+
+2.  Training/finetuning:
+    a.  Was the model trained from scratch?
+    b.  If so, what data was used to train the model? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    c.  If not, was a pre-trained model utilized? Where can more information on the pre-trained model be found? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    d.  Was the pre-trained model finetuned? If so, what data was utilized for finetuning?
+    e.  If training or finetuning was performed, what computational resources were utilized?
+
+3.  Evaluation:
+    a.  How was the model\'s performance evaluated? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    b.  What data was used for evaluation? (M. Arnold, Bellamy, et al. ([2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0002)); Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    c.  If the model involves data pertaining to people, has the model been audited for fairness and bias using tools such as FairLearn? (M. Arnold, Bellamy, et al. ([2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0002)); Bird et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0008); Diakapoulos et al., [n.d.](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0019); Jakeway et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0037); Madaio et al. ([2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0049)); Reisman et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0064))
+    d.  Have any tools been utilized to generate explanations for predictions (i.e., LIME Ribeiro et al. ([2016](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0065)), SHAP Lundberg and Lee ([2017](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0048)), TCAV (Kim et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0040))) and modify the model in response? (M. Arnold, Bellamy, et al. ([2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0002)); Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Diakapoulos et al., [n.d.](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0019); Padilla, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0058); Ribeiro et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0066))
+
+4.  Deployment:
+    a.  How was the model deployed? Was it used to make a single pass over the cultural heritage dataset in question, or will it be continuously deployed?
+    b.  What computational resources were utilized for deployment?
+    c.  Are the metadata generated by the machine learning model (embeddings, classifications, etc.) available as project deliverables?
+
+5.  Release:
+    a.  Has the resulting model been made available for download? (*if no, the following questions can be skipped*)
+    b.  What license has been provided? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    c.  Who are the primary intended users, and what are the intended use cases? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+    d.  Does this model have applicability outside of cultural heritage collections?
+    e.  What are ways that this model could be misused, either intentionally or unintentionally? (Madaio et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0049); Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052))
+
+6.  Environmental impact:
+    a.  What were the carbon emissions produced by training, finetuning, and/or deploying this model? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Lacoste et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0042); Strubell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0075))
+    b.  How does the environmental impact of this model compare to that of other components of the project, such as a collection\'s digitization or stakeholders' flights to relevant conferences?
+
+**Organizational considerations**
+
+1.  Stakeholders:
+    a.  What stakeholder groups are involved in this project? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015))
+    b.  What is each project member\'s familiarity with machine learning? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Jakeway et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0037))
+    c.  What is each project member\'s familiarity with cultural heritage collections as data?
+    d.  Has the project notified and sought input from all potentially relevant stakeholder groups, such as those included within the cultural heritage dataset itself? (Madaio et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0049); Reisman et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0064))
+    e.  Do groups affected by the project, such as individuals and communities directly represented within the cultural heritage dataset, have an avenue for contacting project staff and seeking recourse? If so, whom should they contact? If not, why not? (Diakapoulos et al., [n.d.](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0019); Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052); Reisman et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0064))
+
+2.  Use of machine learning:
+    a.  Was it necessary to use machine learning for this project?
+    b.  If so, why?
+    c.  If not, why was machine learning still utilized?
+    d.  What are potential critiques of applying machine learning in this context?
+
+3.  Organizational context:
+    a.  Can this project be used to build data fluency within the organization or institution? (Padilla, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0058))
+    b.  Do there exist programs or paths for training staff affiliated with the project to develop machine learning skillsets? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Padilla, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0058))
+    c.  Do there exist programs or paths for training staff affiliated with the project to develop fluency with cultural heritage collections?
+
+4.  Project deployment and launch:
+    a.  Who is the target audience of this project? (Madaio et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0049))
+    b.  How does the target audience align with the audiences that the institution or organization is hoping to engage?
+    c.  If the target audience of the project is the public, does it make an attempt to educate the public regarding the machine learning approaches employed?
+    d.  *Did the project launch reach the intended audience?\**
+    e.  *Has the project received feedback from stakeholders, including the audience? If so, what feedback has been received?\**
+    f.  *Has the launch of the project resulted in any changes to the project?\**
+
+> (\* = *to be completed post-launch*)
+
+**Copyright, transparency, documentation, maintenance, and privacy**
+
+1.  Copyright:
+    a.  Building on question 1.1.g, does copyright impact the dataset, model, code, or deliverables for the project? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015); Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029); Jakeway et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0037); Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052); Padilla, [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0057))
+    b.  If they are made available, what licenses have been chosen?
+    c.  If they are proprietary, how does this impact re-use?
+
+2.  Transparency and re-use:
+    a.  Can the project be audited by outsiders? If so, is there funding available to support outside audits? (Mitchell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0052); Reisman et al., [2018](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0064))
+    b.  Is the code created for the project extensible for other cultural heritage researchers? (Padilla, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0058))
+    c.  If so, does the project provide any tutorials or toolkits for re-use?
+
+3.  Documentation:
+    a.  Does the project have documentation? (Katell et al., [2019](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0039))
+    b.  If so, is the documentation interpretable by the project\'s audience?
+    c.  Is the project reproducible to an outside researcher, given the documentation available?
+
+4.  Privacy:
+    a.  If the project is hosted online, are data on visitors collected? If so, what kinds of user data are collected? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015))
+    b.  Is visitor consent gained before gathering online data? (Cordell, [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0015))
+
+5.  Maintenance:
+    a.  Will the project and code be maintained? (Gebru et al., [2020](https://asistdl-onlinelibrary-wiley-com.proxy.library.carleton.ca/doi/full/10.1002/asi.24765#asi24765-bib-0029))
+    b.  If so, how frequently, and who will be responsible for maintaining it?
