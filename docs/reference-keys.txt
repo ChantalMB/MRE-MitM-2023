@@ -8,7 +8,7 @@ fig:unnamed-chunk-10
 fig:unnamed-chunk-11
 fig:unnamed-chunk-12
 fig:unnamed-chunk-13
-welcome-to-my-mre
+reshaping-archives-as-data-through-early-modern-marginalia
 abstract
 acknowledgements
 intro

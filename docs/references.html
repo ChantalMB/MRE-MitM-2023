@@ -23,15 +23,15 @@
 <meta name="author" content="Chantal M Brousseau" />
 
 
-<meta name="date" content="2023-05-30" />
+<meta name="date" content="2023-09-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="conclusions.html"/>
-
+<link rel="next" href="appendix-a-the-full-collections-as-ml-data-checklist.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -52,6 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.2/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 
 
 
@@ -98,26 +105,57 @@ div.csl-indent {
 <li><a href="./">Metadata in the Margins</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome to my MRE</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Reshaping Archives as Data through Early Modern Marginalia</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#abstract"><i class="fa fa-check"></i><b>1.1</b> Abstract</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#acknowledgements"><i class="fa fa-check"></i><b>1.2</b> Acknowledgements</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html"><i class="fa fa-check"></i><b>3</b> Marginalia in the Archive</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#historical-significance-of-marginalia"><i class="fa fa-check"></i><b>3.1</b> Historical Significance of Marginalia</a></li>
-<li class="chapter" data-level="3.2" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#presence-in-physical-and-digital-archives"><i class="fa fa-check"></i><b>3.2</b> Presence in Physical and Digital Archives</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="the-digital-archive.html"><a href="the-digital-archive.html"><i class="fa fa-check"></i><b>4</b> The Digital Archive</a>
+<li class="chapter" data-level="3.1" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#the-historiography-of-marginalia"><i class="fa fa-check"></i><b>3.1</b> The Historiography of Marginalia</a></li>
+<li class="chapter" data-level="3.2" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#presence-in-physical-and-digital-archives"><i class="fa fa-check"></i><b>3.2</b> Presence in Physical and Digital Archives</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="the-digital-archive.html"><a href="the-digital-archive.html#as-big-data"><i class="fa fa-check"></i><b>4.1</b> As Big Data</a></li>
-<li class="chapter" data-level="4.2" data-path="the-digital-archive.html"><a href="the-digital-archive.html#as-metadata"><i class="fa fa-check"></i><b>4.2</b> As Metadata</a></li>
+<li class="chapter" data-level="3.2.1" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#how-is-marginalia-defined"><i class="fa fa-check"></i><b>3.2.1</b> How is Marginalia defined?</a></li>
+<li class="chapter" data-level="3.2.2" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#physical-and-digital-presence"><i class="fa fa-check"></i><b>3.2.2</b> Physical and Digital Presence</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><i class="fa fa-check"></i><b>5</b> Creation of an Application to Capture the Metadata of Big Data</a>
+<li class="chapter" data-level="3.3" data-path="marginalia-in-the-archive.html"><a href="marginalia-in-the-archive.html#on-object-marks-and-machines"><i class="fa fa-check"></i><b>3.3</b> On Object Marks and Machines</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><i class="fa fa-check"></i><b>4</b> Creation of an Application to Capture the Metadata of Big Data</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#technical-overview"><i class="fa fa-check"></i><b>5.1</b> Technical Overview</a></li>
-<li class="chapter" data-level="5.2" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#process"><i class="fa fa-check"></i><b>5.2</b> Process</a></li>
+<li class="chapter" data-level="4.1" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#technical-overview"><i class="fa fa-check"></i><b>4.1</b> Technical Overview</a></li>
+<li class="chapter" data-level="4.2" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#process"><i class="fa fa-check"></i><b>4.2</b> Process</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#interface-and-tooling"><i class="fa fa-check"></i><b>4.2.1</b> Interface and Tooling</a></li>
+<li class="chapter" data-level="4.2.2" data-path="creation-of-an-application-to-capture-the-metadata-of-big-data.html"><a href="creation-of-an-application-to-capture-the-metadata-of-big-data.html#annotation-and-metadata"><i class="fa fa-check"></i><b>4.2.2</b> Annotation and Metadata</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html"><i class="fa fa-check"></i><b>6</b> Case Study: Finding Early Modern Marginalia</a></li>
-<li class="chapter" data-level="7" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>7</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html"><i class="fa fa-check"></i><b>5</b> Case Study: Finding Early Modern Marginalia</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#understanding-big-data"><i class="fa fa-check"></i><b>5.1</b> Understanding Big Data</a></li>
+<li class="chapter" data-level="5.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-cultural-heritage-collection-as-data"><i class="fa fa-check"></i><b>5.2</b> The Cultural Heritage Collection as Data</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#nls-chapbooks-in-the-data-foundry"><i class="fa fa-check"></i><b>5.2.1</b> NLS Chapbooks in the Data Foundry</a></li>
+<li class="chapter" data-level="5.2.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-archaeology-of-reading"><i class="fa fa-check"></i><b>5.2.2</b> The Archaeology of Reading</a></li>
+<li class="chapter" data-level="5.2.3" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#early-modern-annotated-books"><i class="fa fa-check"></i><b>5.2.3</b> Early Modern Annotated Books</a></li>
+<li class="chapter" data-level="5.2.4" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#dataset-provenance"><i class="fa fa-check"></i><b>5.2.4</b> Dataset Provenance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#annotation-process-and-dataset-formation"><i class="fa fa-check"></i><b>5.3</b> Annotation Process and Dataset Formation</a></li>
+<li class="chapter" data-level="5.4" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#the-machine-learning-model"><i class="fa fa-check"></i><b>5.4</b> The Machine Learning Model</a></li>
+<li class="chapter" data-level="5.5" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#results"><i class="fa fa-check"></i><b>5.5</b> Results</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#false-positives"><i class="fa fa-check"></i><b>5.5.1</b> False Positives</a></li>
+<li class="chapter" data-level="5.5.2" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#man-vs-machine"><i class="fa fa-check"></i><b>5.5.2</b> Man vs Machine</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="case-study-finding-early-modern-marginalia.html"><a href="case-study-finding-early-modern-marginalia.html#discussion"><i class="fa fa-check"></i><b>5.6</b> Discussion</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusions.html"><a href="conclusions.html"><i class="fa fa-check"></i><b>6</b> Conclusions</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="conclusions.html"><a href="conclusions.html#future-directions"><i class="fa fa-check"></i><b>6.1</b> Future Directions</a></li>
+<li class="chapter" data-level="6.2" data-path="conclusions.html"><a href="conclusions.html#closing-thoughts"><i class="fa fa-check"></i><b>6.2</b> Closing Thoughts</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="appendix-a-the-full-collections-as-ml-data-checklist.html"><a href="appendix-a-the-full-collections-as-ml-data-checklist.html"><i class="fa fa-check"></i><b>7</b> Appendix A: The Full “Collections as ML Data” Checklist</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -141,38 +179,14 @@ div.csl-indent {
 <div id="references" class="section level1 unnumbered hasAnchor">
 <h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
-<div class="csl-entry">
-<span>“Annotated <span>Books</span> <span>Online</span>: <span>A</span> Digital Archive of Early Modern Annotated Books.”</span> Accessed May 30, 2023. <a href="https://www.annotatedbooksonline.com/">https://www.annotatedbooksonline.com/</a>.
 </div>
-<div class="csl-entry">
-Xie, Yihui. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>, 2023. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.
-</div>
-<div class="csl-entry">
-———. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC, 2015. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.
-</div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="conclusions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="conclusions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-a-the-full-collections-as-ml-data-checklist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -203,7 +217,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-references.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-references.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -214,7 +228,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["MRE-mitm.pdf", "MRE-mitm.epub"],
 "search": {
 "engine": "fuse",
 "options": null
