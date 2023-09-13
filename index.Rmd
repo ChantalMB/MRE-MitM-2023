@@ -14,7 +14,9 @@ description: "This is a minimal example of using the bookdown package to write a
 always_allow_html: yes
 ---
 
-# Welcome to my MRE
+# Reshaping Archives as Data through Early Modern Marginalia
+
+This website is the written component of my master's research project done for the [MA History with specialization in Data Science](https://graduate.carleton.ca/cu-programs/data-science-collaborative-masters/) program at Carleton University.
 
 - The GitHub repository for this site: https://github.com/ChantalMB/MRE-MitM-2023
 - The GitHub repository for the app: https://github.com/ChantalMB/MRE-RocketAnno
